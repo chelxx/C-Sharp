@@ -15,7 +15,7 @@ namespace collections_practice
                 numberArray[i] = i;
                 Console.WriteLine(value: i);
             }
-            
+
 
             // Create an array of the names "Tim", "Martin", "Nikki", & "Sara"
             string[] nameArray = new string[4];
@@ -23,7 +23,7 @@ namespace collections_practice
             nameArray[1] = "Martin";
             nameArray[2] = "Nikki";
             nameArray[3] = "Sara";
-            foreach (string name in nameArray){
+            foreach (string name in nameArray){ 
                 Console.WriteLine(name);
             }
 
@@ -47,7 +47,16 @@ namespace collections_practice
 
             // Multiplication Table
             // With the values 1-10, use code to generate a multiplication table like the one below.
-            // ADD ANSWERS HERE!
+            int[,] multiplicationTable = new int[10,10];
+            for(int k = 0; k <= 9; k++)
+            {
+                for(int l = 0; l <= 9; l++)
+                {
+                    multiplicationTable[k,l]=(k+1)*(l+1);
+                    Console.Write(string.Format("{0} ", multiplicationTable[k,l]));
+                }
+                Console.Write(Environment.NewLine);
+            }
 
 
             // List of Flavors
@@ -91,7 +100,7 @@ namespace collections_practice
             // Loop through the Dictionary and print out each user's name and their associated ice cream flavor.
             foreach (var dude in profile)
             {
-                Console.WriteLine(dude.Key + " - " + dude.Value);
+                Console.WriteLine(dude.Key + " : " + dude.Value);
             }
         }
     }
