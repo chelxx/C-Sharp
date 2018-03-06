@@ -26,7 +26,7 @@ namespace puzzles
             int sum = 0;
             for (int i = 0; i < rand_Array.Length; i++)
             {
-                rand_Array[i] = rand.Next(5,11);
+                rand_Array[i] = rand.Next(0,11);
                 if (max < rand_Array[i])
                 {
                     max = rand_Array[i];
@@ -36,6 +36,7 @@ namespace puzzles
                     min = rand_Array[i];
                 }
                 sum = sum + rand_Array[i];
+                System.Console.WriteLine(rand_Array[i]);
             }
             System.Console.WriteLine("Max is: " + max + ", Min is: " + min + ", and Sum is: " + sum);
             return rand_Array;
@@ -86,6 +87,7 @@ namespace puzzles
                 }
             }
             ratio = heads/(heads + tails); // Not showing on terminal???
+            System.Console.WriteLine("The ratio is: " + ratio);
             return ratio;
         }
         public static string Names()
@@ -96,13 +98,13 @@ namespace puzzles
             string[] nameArray = {"Todd", "Tiffany", "Charlie", "Geneva", "Sydney"};
             Random rand = new Random();
             string temp = "";
-            for (int i = 0; i < nameArray.Length; i++)
+            for (int index = 0; index < nameArray.Length; index++)
             {
-                int name = rand.Next(i, nameArray.Length);
-                temp = nameArray[i];
-                nameArray[i] = nameArray[name];
-                nameArray[name] = temp;
-                System.Console.WriteLine("At index {0}, The name is {1}.", i, nameArray[i]);
+                int shuffle = rand.Next(index, nameArray.Length); // Shuffle! Contains the start (index) and the exclusion (nameArray.Length which is 5).
+                temp = nameArray[index]; // temp now contains nameArray[index] which is Todd
+                nameArray[index] = nameArray[shuffle]; // nameArray[index] which WAS Todd is now going to be a Shuffled name
+                nameArray[shuffle] = temp; // Then the Shuffled name's index is now replaced with Charlie
+                Console.WriteLine("Index {0} contains the name {1}.", index, nameArray[index]);
             }
             return temp;
         }
