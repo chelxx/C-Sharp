@@ -68,7 +68,7 @@ namespace basic_13
         // #7 Array with Odd Numbers
         public static void Odd_Numbers()
         {
-
+            // Needs work...
         }
         // #8 Greater than Y
         public static void Greater_Than_Y(int[] arr, int y)
@@ -126,36 +126,37 @@ namespace basic_13
             int avg = sum / arr.Length;
             Console.WriteLine("The results are: Min is " + min + ", Max is " + max + ", Sum is " + sum + ", and Avg is " + avg);
         }
-        // #12 Shifting the values in an array
+        // #12 Shifting the values in an arr
         public static void Shifting_Values(int[] arr)
         {
             List<int> shift = new List<int>();
-        
-            for(int i = 0; i < arr.Length-1; i++){
+            for(int i = 0; i < arr.Length-1; i++)
+            {
                 shift.Add(arr[i+1]);
             }
             shift.Add(0);
-            foreach(var thing in shift){
+            foreach(var thing in shift)
+            {
                 Console.WriteLine(thing);
             }
         }
         // #13 Number to String
         public static void Number_To_String()
         {
-            List<string> templist = new List<string>();
-
-            for(int i = 0; i < numberArray.Length; i++){
-                if(numberArray[i] < 0){
-                    templist.Add("Dojo");
-                } else {
-                    templist.Add(numberArray[i].ToString());
+            int[] Dojo = new int[4] {-10,-20,-30,10};
+            for(int i = 0; i < Dojo.Length; i++) 
+            {
+                if(Dojo[i] < 0)
+                {
+                    string to_String = Dojo[i].ToString();
+                    to_String = "Dojo";
+                    Console.WriteLine(to_String);
+                }
+                else
+                {
+                    Console.WriteLine(Dojo[i]);
                 }
             }
-            // templist.ToArray();
-            foreach(var item in templist){
-                Console.WriteLine(item);
-            }
-            return templist;
         }
         // Calling the Functions
         public static void Main(string[] args)
@@ -170,11 +171,10 @@ namespace basic_13
             Odd_Numbers(); // Needs work
             Greater_Than_Y(the_Array, 2);
             Square_Values(the_Array);
-            No_Negatives(); // This has its own array
+            No_Negatives(); // This has its own arr
             Find_Min_Max_Avg(the_Array);
             Shifting_Values(the_Array);
-            //object here
-            Number_To_String();
+            Number_To_String(); // This has its own arr
         }
     }
 }
