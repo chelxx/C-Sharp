@@ -7,6 +7,8 @@ namespace deck_of_cards
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Deck theDeck = new Deck();
+            theDeck.Deal();
         }
     }
 }
