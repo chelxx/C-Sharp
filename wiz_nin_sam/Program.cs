@@ -24,6 +24,7 @@ namespace wiz_nin_sam
             hattori.death_blow(masamune);
             hattori.death_blow(masamune);
             masamune.meditate();
+            System.Console.WriteLine(Samurai.how_many());
         }
     }
 }

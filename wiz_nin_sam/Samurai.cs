@@ -6,6 +6,7 @@ namespace wiz_nin_sam
     public class Samurai : Human // Ninja inherits from the Human class
     {
         public int health = 200;
+        public static int number; // HOW MANY needs work
         public Samurai(string n) : base(n)
         {
             System.Console.WriteLine($"The SAMURAI {name}'s stats are... Strength: {strength}, Intelligence: {intelligence}, Dexterity: {dexterity}, Health: {health}");  
@@ -33,6 +34,10 @@ namespace wiz_nin_sam
             this.health = 200;
             System.Console.WriteLine($"{name} meditates... Health is back to {health}.");
             return (int)health;
+        }
+        public static int how_many()
+        {
+            return number;
         }
 
     }
