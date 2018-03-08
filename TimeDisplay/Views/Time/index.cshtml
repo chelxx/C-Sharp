@@ -5,7 +5,11 @@
         <title>Time Display</title>
     </head>
     <body>
-        <h1>The current time and date:</h1>
-        <>
+        <h2><font color="green">The current time and date:</font></h2>
+        @{DateTime CurrentTime = DateTime.Now;}
+
+        <h1>@DateTime.Now.ToString("MMM dd, yyyy")</h1>
+        <h1>@DateTime.Now.ToString("h:mm:ss tt")</h1>
+
     </body>
 </html>
