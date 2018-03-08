@@ -1,0 +1,10 @@
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.deps.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.runtimeconfig.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.runtimeconfig.dev.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/bin/Debug/netcoreapp2.0/Portfolio.pdb
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.csproj.CoreCompileInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.AssemblyInfoInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.AssemblyInfo.cs
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Portfolio/obj/Debug/netcoreapp2.0/Portfolio.pdb
