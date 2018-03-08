@@ -35,7 +35,7 @@ namespace wiz_nin_sam
             System.Console.WriteLine($"{name} meditates... Health is back to {health}.");
             return (int)health;
         }
-        public static int how_many()
+        public static int how_many() // Needs work... Always returns 0!
         {
             return number;
         }
