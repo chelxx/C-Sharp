@@ -11,27 +11,29 @@ namespace wiz_nin_sam
         public new int dexterity { get; set; }
         public new int health { get; set; }
 
-        public Wizard(string n)
+        public Wizard(string n) : base(person)
         {
             intelligence = 25;
             health = 50;
+            System.Console.WriteLine($"The Wizard {name}'s stats are... Strength: {strength}, Intelligence: {intelligence}, Dexterity: {dexterity}, Health: {health}");
+
         }
-        public Wizard heal(object obj) // Parameters???
+        public int heal(Human user) // Parameters???
         {
             // Increases Wizard's health by 10 * intelligence
             int heal = 10 * intelligence;
-            health += heal;
-            System.Console.WriteLine("Wizard " + name + " healed " + heal + " points!");
-            // return something here
+            user.health += heal;
+            System.Console.WriteLine($"Wizard {name} healed {heal} points!");
+            return (int)health;
         }
-        public Wizard fireball(Human enemy) // Parameters???
+        public int fireball(Human enemy) // Parameters???
         {
             // Does random damage between 20 and 50
             Random rand = new Random();
             int fireball = rand.Next(20, 51);
             enemy.health -= fireball;
-            System.Console.WriteLine("Fireball attack dealt " + fireball + " damage!");
-            // return somethinhg here
+            System.Console.WriteLine($"Fireball attack dealt {fireball} damage to {enemy}!");
+            return (int)health;
         }
 
     }

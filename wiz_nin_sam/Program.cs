@@ -6,7 +6,9 @@ namespace wiz_nin_sam
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Wizard gandalf = new Wizard("Gandalf");
         }
     }
 }
+// Notes:
+// #1: When do you want or not want to use VOID?

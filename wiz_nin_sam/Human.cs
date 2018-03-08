@@ -2,6 +2,7 @@ using System;
 
 namespace wiz_nin_sam
 {
+    // THIS WHOLE FILE IS FROM THE PLATFORM
     public class Human // Creates the Human Class
     {
         public string name;
@@ -20,9 +21,9 @@ namespace wiz_nin_sam
             dexterity = 3;
             health = 100;
         }
-        public Human(string person, int str, int intel, int dex, int hp)
+        public Human(string n, int str, int intel, int dex, int hp)
         {
-            name = person;
+            name = n;
             strength = str;
             intelligence = intel;
             dexterity = dex;
