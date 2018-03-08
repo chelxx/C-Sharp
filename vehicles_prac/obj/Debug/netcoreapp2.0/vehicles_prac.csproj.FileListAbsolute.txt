@@ -1,0 +1,10 @@
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/bin/Debug/netcoreapp2.0/vehicles_prac.deps.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/bin/Debug/netcoreapp2.0/vehicles_prac.runtimeconfig.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/bin/Debug/netcoreapp2.0/vehicles_prac.runtimeconfig.dev.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/bin/Debug/netcoreapp2.0/vehicles_prac.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/bin/Debug/netcoreapp2.0/vehicles_prac.pdb
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/obj/Debug/netcoreapp2.0/vehicles_prac.csproj.CoreCompileInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/obj/Debug/netcoreapp2.0/vehicles_prac.AssemblyInfoInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/obj/Debug/netcoreapp2.0/vehicles_prac.AssemblyInfo.cs
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/obj/Debug/netcoreapp2.0/vehicles_prac.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/vehicles_prac/obj/Debug/netcoreapp2.0/vehicles_prac.pdb
