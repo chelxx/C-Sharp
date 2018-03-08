@@ -13,11 +13,11 @@ namespace card_deck
             name = n;
             System.Console.WriteLine($"{name} joins the game!");
         }
-        public Card draw(Deck deck) // The player's DRAW method
+        public Card draw(Deck deck) // The player's DRAW method, connects to Deck's DEAL method
         {
             Card playerCard = deck.deal(); 
             playerHand.Add(playerCard);
-            System.Console.WriteLine($"Drawing a card... {playerCard}");
+            System.Console.WriteLine("Drawing! You got " + playerCard); // HOW TO MAKE THIS SHOW UP IN TERMINAL
             return playerCard; 
         }
         public Card discard(int i) // The player's DISCARD method
