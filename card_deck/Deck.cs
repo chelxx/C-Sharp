@@ -10,7 +10,7 @@ namespace card_deck
         public Deck() // The actual making of the deck
         {
             string[] suits = {"Diamonds", "Hearts", "Spades", "Clubs"}; 
-            string[] stringVal = {"Ace", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+            string[] stringVal = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 
             foreach(string suit in suits) // This will cycle through each suit...
             {
@@ -18,23 +18,32 @@ namespace card_deck
                 {
                     Card newCard = new Card(suit, stringVal[i], i+1); // The card is made!
                     cards.Add(newCard); // The card is added to the deck
+                    System.Console.WriteLine("Adding a new card... " + stringVal[i] + " of " + suit); // I NEED VISUALS OKAY :(
                 }
             }
         }
         public Card deal() // The DEAL method
         {
-            Card dealCard = cards[0]; // This takes the card at index 0 aka the first card
+            Card dealCard = cards[0]; // This takes the card at index 0 aka the first/top card
             cards.RemoveAt(0);
             return dealCard;
         }
         public void reset() // The RESET THE DECK method
         {
             List<Card> cards = new List<Card>();
-            System.Console.WriteLine("The deck has been reset!");
+            System.Console.WriteLine("Resetting the deck!");
         }
-        // public Deck shuffle()
-        // {
-                // HOW DO YOU SHUFFLE?!
-        // }
+        public void shuffle() // The SHUFFLE method
+        {
+            Random rand = new Random(); // Random
+            for (int i = 0; i < cards.Count; i++) // For loop to go through each card and shuffling it to give it a new suit and value
+            {
+                int shuffle = rand.Next(i, cards.Count);
+                Card temp = cards[shuffle];
+                cards[shuffle] = cards[i];
+                cards[i] = temp;
+            }
+            System.Console.WriteLine("Shuffling the deck!");
+        }
     }
 }

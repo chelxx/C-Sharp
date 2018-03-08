@@ -16,7 +16,8 @@ namespace card_deck
         public Card draw(Deck deck) // The player's DRAW method
         {
             Card playerCard = deck.deal(); 
-            playerHand.Add(playerCard); 
+            playerHand.Add(playerCard);
+            System.Console.WriteLine($"Drawing a card... {playerCard}");
             return playerCard; 
         }
         public Card discard(int i) // The player's DISCARD method
