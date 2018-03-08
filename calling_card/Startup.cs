@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace web_prac
+namespace calling_card
 {
     public class Startup
     {
@@ -18,7 +18,6 @@ namespace web_prac
         {
             services.AddMvc();
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
@@ -27,14 +26,8 @@ namespace web_prac
                 {
                     app.UseDeveloperExceptionPage();
                 }
-            app.UseMvc( routes =>
-            {
-                routes.MapRoute(
-                    name: "Default", // The route's name is only for our own reference
-                    template: "", // The pattern that the route matches
-                    defaults: new {controller = "Hello", action = "Index"} // The controller and method to execute
-                );
-            });
+
+            app.UseMvc();
         }
     }
 }
