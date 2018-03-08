@@ -9,6 +9,7 @@ namespace wiz_nin_sam
         public static int number; // HOW MANY needs work
         public Samurai(string n) : base(n)
         {
+            number++;
             System.Console.WriteLine($"The SAMURAI {name}'s stats are... Strength: {strength}, Intelligence: {intelligence}, Dexterity: {dexterity}, Health: {health}");  
         }
         public int death_blow(Human enemy) // Parameters???
@@ -37,6 +38,7 @@ namespace wiz_nin_sam
         }
         public static int how_many() // Needs work... Always returns 0!
         {
+            System.Console.WriteLine($"{number}");
             return number;
         }
 

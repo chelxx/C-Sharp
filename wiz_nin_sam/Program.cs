@@ -29,6 +29,6 @@ namespace wiz_nin_sam
     }
 }
 // Notes:
-// #1: When do you want or not want to use VOID?
+// #1: When do you want or not want to use VOID? NO RETURN USE VOID
 // #2: Where do returns go??
 // #3: What is base?

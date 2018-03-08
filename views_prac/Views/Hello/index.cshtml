@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Hello!</title>
+    </head>
+    <body>
+        <h1>CHELSEA LOVES SHAKE SHACK!</h1>
+        @{
+            var StringList = new List<string>{
+                                    "shackburger",
+                                    "garbage food",
+                                    "shake",
+                                    "fry"
+                                };
+            
+            foreach(var word in StringList)
+            {
+                // We can render HTML from within C# code!
+                <p>@word</p>
+                @if(word.Length < 4)
+                {
+                    <p>@word is a short word</p>
+                }
+            }
+        }
+    </body>
+</html>
