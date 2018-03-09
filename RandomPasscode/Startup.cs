@@ -29,8 +29,8 @@ namespace RandomPasscode
                 app.UseDeveloperExceptionPage();
             }
             app.UseSession();
-            app.UseMvc();
             app.UseStaticFiles();
+            app.UseMvc();
         }
     }
 }

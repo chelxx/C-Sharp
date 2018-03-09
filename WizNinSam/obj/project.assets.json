@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/wiz_nin_sam/wiz_nin_sam.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/WizNinSam/wiz_nin_sam.csproj",
       "projectName": "wiz_nin_sam",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/wiz_nin_sam/wiz_nin_sam.csproj",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/WizNinSam/wiz_nin_sam.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/wiz_nin_sam/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/WizNinSam/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

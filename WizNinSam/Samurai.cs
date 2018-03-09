@@ -38,7 +38,6 @@ namespace wiz_nin_sam
         }
         public static int how_many() // Needs work... Always returns 0!
         {
-            System.Console.WriteLine($"{number}");
             return number;
         }
 

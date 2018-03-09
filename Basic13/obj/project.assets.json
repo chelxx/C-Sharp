@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/basic_13/basic_13.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/basic_13.csproj",
       "projectName": "basic_13",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/basic_13/basic_13.csproj",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/basic_13.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/basic_13/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

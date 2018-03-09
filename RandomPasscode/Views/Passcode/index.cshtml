@@ -9,8 +9,8 @@
     <title>HOME</title>
 </head>
 <body>
-    <h2>Random Passcode (passcode #  ):</h2> <!-- There's a counter here! -->
-    <h1><font color="green"> *** Generated Password *** </font></h1>
+    <h2>Random Passcode (passcode #@ViewBag.count):</h2>
+    <h1><font color="green">@ViewBag.passcode</font></h1>
     <form action="" method="post">
         <button>GENERATE</button>
     </form>
