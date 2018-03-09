@@ -22,7 +22,7 @@ namespace RandomPasscode.Controllers
             count++;
             ViewBag.passcode = passcode;
             ViewBag.count = count;
-            return View();
+            return View("index");
         }
     }
 }
