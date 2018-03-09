@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Dojo Survey Results</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <div id="wrapper">
+            @{
+                string name = ViewBag.name;
+                string location = ViewBag.location;
+                string language = ViewBag.language;
+                string comments = ViewBag.comments;
+            }
+            <h1>Submitted Info:</h1>
+            <table>
+                <tr>
+                    <td>Name: </td>
+                    <td>@name</td>
+                </tr>
+                <tr>
+                    <td>Dojo Location: </td>
+                    <td>@location</td>
+                </tr>
+                <tr>
+                    <td>Favorite Language: </td>
+                    <td>@language</td>
+                </tr>
+                <tr>
+                    <td>Comment: </td>
+                    <td>@comments</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
