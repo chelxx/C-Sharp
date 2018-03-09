@@ -22,7 +22,13 @@ namespace RandomPasscode.Controllers
             count++;
             ViewBag.passcode = passcode;
             ViewBag.count = count;
-            return View("index");
+            return View("Index");
+        }
+        [HttpPost]
+        [Route("create")]
+        public IActionResult Create()
+        {
+            return RedirectToAction("Index");
         }
     }
 }
