@@ -1,6 +1,6 @@
 using System;
 
-namespace human_oop
+namespace Human
 {
     public class Human
     {

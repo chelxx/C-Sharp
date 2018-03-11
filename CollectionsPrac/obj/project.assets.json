@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/collections_prac/collections_practice.csproj",
-      "projectName": "collections_practice",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/collections_prac/collections_practice.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/CollectionsPrac.csproj",
+      "projectName": "CollectionsPrac",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/CollectionsPrac.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/collections_prac/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

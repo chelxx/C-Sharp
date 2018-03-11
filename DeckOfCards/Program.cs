@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace card_deck
+namespace DeckOfCards
 {
     class Program // HERE WE GOOOOOO!!!
     {

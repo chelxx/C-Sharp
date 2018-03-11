@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace boxing_unboxing
+namespace BoxingUnboxing
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            BoxingUnboxingAssignment();
+        }
+        public static void BoxingUnboxingAssignment()
         {
             // Create an empty List of type object
             List<object> box_list = new List<object>();
@@ -30,6 +34,6 @@ namespace boxing_unboxing
                 }
             Console.WriteLine(sum);
             }
-        }
+        } 
     }
 }

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/card_deck.csproj"
+                "${workspaceFolder}/DeckOfCards.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

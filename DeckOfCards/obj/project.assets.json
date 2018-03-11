@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/card_deck/card_deck.csproj",
-      "projectName": "card_deck",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/card_deck/card_deck.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/DeckOfCards/DeckOfCards.csproj",
+      "projectName": "DeckOfCards",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/DeckOfCards/DeckOfCards.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/card_deck/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/DeckOfCards/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

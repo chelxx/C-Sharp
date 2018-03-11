@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace card_deck
+namespace DeckOfCards
 { 
     public class Deck // Creating the class of DECK
     {

@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/fundamentals_one/fundamentals_one.csproj",
-      "projectName": "fundamentals_one",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/fundamentals_one/fundamentals_one.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/FundamentalsOne/FundamentalsOne.csproj",
+      "projectName": "FundamentalsOne",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/FundamentalsOne/FundamentalsOne.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/fundamentals_one/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/FundamentalsOne/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

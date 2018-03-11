@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/boxing_unboxing.csproj"
+                "${workspaceFolder}/BoxingUnboxing.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

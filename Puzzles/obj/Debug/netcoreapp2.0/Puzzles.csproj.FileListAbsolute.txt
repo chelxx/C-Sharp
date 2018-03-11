@@ -1,0 +1,10 @@
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/obj/Debug/netcoreapp2.0/Puzzles.csproj.CoreCompileInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/obj/Debug/netcoreapp2.0/Puzzles.AssemblyInfoInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/obj/Debug/netcoreapp2.0/Puzzles.AssemblyInfo.cs
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/bin/Debug/netcoreapp2.0/Puzzles.deps.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/bin/Debug/netcoreapp2.0/Puzzles.runtimeconfig.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/bin/Debug/netcoreapp2.0/Puzzles.runtimeconfig.dev.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/bin/Debug/netcoreapp2.0/Puzzles.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/bin/Debug/netcoreapp2.0/Puzzles.pdb
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/obj/Debug/netcoreapp2.0/Puzzles.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/Puzzles/obj/Debug/netcoreapp2.0/Puzzles.pdb

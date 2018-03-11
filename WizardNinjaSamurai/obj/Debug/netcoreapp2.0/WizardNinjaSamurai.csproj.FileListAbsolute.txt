@@ -1,0 +1,10 @@
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/bin/Debug/netcoreapp2.0/WizardNinjaSamurai.deps.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/bin/Debug/netcoreapp2.0/WizardNinjaSamurai.runtimeconfig.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/bin/Debug/netcoreapp2.0/WizardNinjaSamurai.runtimeconfig.dev.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/bin/Debug/netcoreapp2.0/WizardNinjaSamurai.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/bin/Debug/netcoreapp2.0/WizardNinjaSamurai.pdb
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/obj/Debug/netcoreapp2.0/WizardNinjaSamurai.csproj.CoreCompileInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/obj/Debug/netcoreapp2.0/WizardNinjaSamurai.AssemblyInfoInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/obj/Debug/netcoreapp2.0/WizardNinjaSamurai.AssemblyInfo.cs
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/obj/Debug/netcoreapp2.0/WizardNinjaSamurai.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/WizardNinjaSamurai/obj/Debug/netcoreapp2.0/WizardNinjaSamurai.pdb

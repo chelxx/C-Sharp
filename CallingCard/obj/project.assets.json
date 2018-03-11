@@ -12540,11 +12540,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/calling_card/calling_card.csproj",
-      "projectName": "calling_card",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/calling_card/calling_card.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/CallingCard/CallingCard.csproj",
+      "projectName": "CallingCard",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/CallingCard/CallingCard.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/calling_card/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/CallingCard/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

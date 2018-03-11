@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace collections_practice
+namespace CollectionsPrac
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            ThreeBasicArrays();
+            MultiplicationTable();
+            ListOfFlavors();
+            UserInfoDictionary();
+        }
+        public static void ThreeBasicArrays()
         {
             // Three Basic Arrays
             // Create an array to hold integer values 0 through 9
@@ -43,8 +50,9 @@ namespace collections_practice
             foreach (bool array in booleanArray){
                     Console.WriteLine(array);
             }
-
-
+        }
+        public static void MultiplicationTable()
+        {
             // Multiplication Table
             // With the values 1-10, use code to generate a multiplication table like the one below.
             int[,] multiplicationTable = new int[10,10];
@@ -57,8 +65,9 @@ namespace collections_practice
                 }
                 Console.Write(Environment.NewLine);
             }
-
-
+        }
+        public static void ListOfFlavors()
+        {
             // List of Flavors
             // Create a list of Ice Cream flavors that holds at least 5 different flavors (feel free to add more than 5!)
             List<string> flavors = new List<string>();
@@ -77,11 +86,25 @@ namespace collections_practice
 
             // Output the new length of the list (Note it should just be one less~)
             Console.WriteLine(flavors.Count);
-
-
+        }
+        public static void UserInfoDictionary()
+        {
             // User Info Dictionary
             // Create a Dictionary that will store both string keys as well as string values
             Dictionary<string,string> profile = new Dictionary<string,string>();
+            
+            string[] nameArray = new string[4];
+            nameArray[0] = "Tim";
+            nameArray[1] = "Martin";
+            nameArray[2] = "Nikki";
+            nameArray[3] = "Sara";
+
+            List<string> flavors = new List<string>();
+            flavors.Add("Chocolate");
+            flavors.Add("Vanilla");
+            flavors.Add("Strawberry");
+            flavors.Add("Blueberry");
+            flavors.Add("Caramel"); 
 
             // For each name in the array of names you made previously, add it as a new key in this dictionary with value null
             foreach (string name in nameArray)

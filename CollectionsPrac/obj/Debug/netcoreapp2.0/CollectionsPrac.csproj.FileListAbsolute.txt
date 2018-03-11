@@ -1,0 +1,10 @@
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/obj/Debug/netcoreapp2.0/CollectionsPrac.csproj.CoreCompileInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/obj/Debug/netcoreapp2.0/CollectionsPrac.AssemblyInfoInputs.cache
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/obj/Debug/netcoreapp2.0/CollectionsPrac.AssemblyInfo.cs
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/bin/Debug/netcoreapp2.0/CollectionsPrac.deps.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/bin/Debug/netcoreapp2.0/CollectionsPrac.runtimeconfig.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/bin/Debug/netcoreapp2.0/CollectionsPrac.runtimeconfig.dev.json
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/bin/Debug/netcoreapp2.0/CollectionsPrac.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/bin/Debug/netcoreapp2.0/CollectionsPrac.pdb
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/obj/Debug/netcoreapp2.0/CollectionsPrac.dll
+/Users/chelseacabalan/Desktop/CodingDojo/C#/CollectionsPrac/obj/Debug/netcoreapp2.0/CollectionsPrac.pdb

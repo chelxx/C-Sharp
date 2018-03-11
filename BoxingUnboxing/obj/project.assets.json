@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/boxing_unboxing/boxing_unboxing.csproj",
-      "projectName": "boxing_unboxing",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/boxing_unboxing/boxing_unboxing.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/BoxingUnboxing/BoxingUnboxing.csproj",
+      "projectName": "BoxingUnboxing",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/BoxingUnboxing/BoxingUnboxing.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/boxing_unboxing/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/BoxingUnboxing/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

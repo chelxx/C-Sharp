@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/human_oop/human_oop.csproj",
-      "projectName": "human_oop",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/human_oop/human_oop.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Human/Human.csproj",
+      "projectName": "Human",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Human/Human.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
-      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/human_oop/obj/",
+      "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Human/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
