@@ -22,7 +22,7 @@ namespace SimpleCRUD
             System.Console.WriteLine($"Hello, {f} {l}. Nickname: {n}, Age: {a}, Fave Number: {fn}, Fave Color: {fc}.");
 
             // MySQL query to INSERT data into my Users table
-            string insertquery = $"INSERT INTO Users (FirstName, LastName, Nickname, Age, FavoriteNumber, FavoriteColor) VALUES ({f}, {l}, {n}, {a}, {fn}, {fc})";
+            string insertquery = $"INSERT INTO Users (FirstName, LastName, Nickname, Age, FavoriteNumber, FavoriteColor) VALUES ('{f}', '{l}', '{n}', {a}, {fn}, '{fc}')";
             DbConnector.Execute(insertquery);
         }
         static void Main(string[] args)
