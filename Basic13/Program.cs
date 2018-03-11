@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace basic_13
+namespace Basic13
 {
     class Program
     {

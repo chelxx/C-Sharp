@@ -670,9 +670,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/basic_13.csproj",
-      "projectName": "basic_13",
-      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/basic_13.csproj",
+      "projectUniqueName": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/Basic13.csproj",
+      "projectName": "Basic13",
+      "projectPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/Basic13.csproj",
       "packagesPath": "/Users/chelseacabalan/.nuget/packages/",
       "outputPath": "/Users/chelseacabalan/Desktop/CodingDojo/C#/Basic13/obj/",
       "projectStyle": "PackageReference",
