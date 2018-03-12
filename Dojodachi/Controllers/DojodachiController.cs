@@ -2,62 +2,78 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
  
 namespace Dojodachi.Controllers
 {
     public class DojodachiController : Controller
     {
-        public string name = "Michael Choi";
-        public int fullness = 20;
-        public int happiness = 20;
-        public int meals = 3;
-        public int energy = 50;
-        public string status;
         [HttpGet]
         [Route("")]
         public IActionResult Index()
         {
-            ViewBag.name = name;
-            ViewBag.fullness = fullness;
-            ViewBag.happiness = happiness;
-            ViewBag.meals = meals;
-            ViewBag.energy = energy;
-            ViewBag.status = status;
-            return View("Index");
+            if(HttpContext.Session.GetObjectFromJson<Dojodachi>("dachi") == null)
+            {
+                Dojodachi michaelchoi = new Dojodachi();
+                HttpContext.Session.SetObjectAsJson("dachi", michaelchoi);
+            }
+            ViewBag.michaelchoi = HttpContext.Session.GetObjectFromJson<Dojodachi>("dachi");
+            if(ViewBag.michaelchoi.fullness < 1 || ViewBag.michaelchoi.happiness < 1)
+            {
+                ViewBag.michaelchoi.status = "Wow, good job in keeping me alive. *sarcasm*";
+                return View(viewName: "lose");
+            }
+            if(ViewBag.michaelchoi.fullness == 100 && ViewBag.michaelchoi.happiness >= 100 && ViewBag.michaelchoi.energy == 100)
+            {
+                ViewBag.michaelchoi.status = "I didn't think you could actually keep me alive but look at us now. Congrats!";
+                return View(viewName: "win");
+            }
+            ViewBag.michaelchoi.status = "Hello, my life is in your hands!";
+            return View(viewName: "index");
         }
         [HttpPost]
         [Route("feed")]
         public IActionResult Feed()
         {
-            // Feeding costs 1 meal and gains RANDOM fullness (5-10). Can't feed if 0 meals!
-
-            ViewBag.status = "You fed me! That cost 1 meal.";
-            // IF fullness or happiness drop to 0, REDIRECT TO LOSE
-            // IF fullness and happiness are 100, REDIRECT TO WIN
+            Dojodachi michaelchoi = HttpContext.Session.GetObjectFromJson<Dojodachi>("dachi");
+            michaelchoi.feed();
+            HttpContext.Session.SetObjectAsJson("dachi", michaelchoi);
             return RedirectToAction("Index");
         }
         [HttpPost]
         [Route("play")]
         public IActionResult Play()
         {
-            // Playing costs 5 energy and gains RANDOM happiness (5-10).
-            ViewBag.status = "I'm playing! ";
+            Dojodachi michaelchoi = HttpContext.Session.GetObjectFromJson<Dojodachi>("dachi");
+            michaelchoi.play();
+            HttpContext.Session.SetObjectAsJson("dachi", michaelchoi);
             return RedirectToAction("Index");
         }
         [HttpPost]
         [Route("work")]
         public IActionResult Work()
         {
-            // Working costs 5 energy and earns RANDOM meals (1-3).
-            ViewBag.status = "I'm working hard in exchange for {meak count here} meals.";
+            Dojodachi michaelchoi = HttpContext.Session.GetObjectFromJson<Dojodachi>("dachi");
+            michaelchoi.work();
+            HttpContext.Session.SetObjectAsJson("dachi", michaelchoi);
             return RedirectToAction("Index");
         }
         [HttpPost]
         [Route("sleep")]
         public IActionResult Sleep()
         {
-            // Sleeping costs 5 fullness, 5 happiness and earns 15 energy.
-            ViewBag.status = "I'm sleeping! Zzzz...";
+            Dojodachi michaelchoi = HttpContext.Session.GetObjectFromJson<Dojodachi>("dachi");
+            michaelchoi.sleep();
+            HttpContext.Session.SetObjectAsJson("dachi", michaelchoi);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        [Route("reset")]
+        public IActionResult Reset()
+        {
+            Dojodachi michaelchoi = HttpContext.Session.GetObjectFromJson<Dojodachi>("dachi");
+            michaelchoi.reset();
+            HttpContext.Session.SetObjectAsJson("dachi", michaelchoi);
             return RedirectToAction("Index");
         }
     }

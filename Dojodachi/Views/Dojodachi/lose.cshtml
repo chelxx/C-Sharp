@@ -8,11 +8,14 @@
     <title>YOU LOSE!</title>
 </head>
 <body>
-    <h3>Fullness: <span>@ViewBag.fullness</span></h3>
-    <h3>Happiness: <span>@ViewBag.happiness</span></h3>
-    <h3>Meals: <span>@ViewBag.meals</span></h3>
-    <h3>Energy: <span>@ViewBag.energy</span></h3>
-    <img src="~/images/Dojodachi.gif" alt="Take care of me!"><br><br>
-
+    <h3 class="stats">Fullness: <span>@ViewBag.michaelchoi.fullness</span></h3>
+    <h3 class="stats">Happiness: <span>@ViewBag.michaelchoi.happiness</span></h3>
+    <h3 class="stats">Meals: <span>@ViewBag.michaelchoi.meals</span></h3>
+    <h3 class="stats">Energy: <span>@ViewBag.michaelchoi.energy</span></h3>
+    <img src="~/images/Dojodachi.gif" alt="Take care of me!">
+    <h3>@ViewBag.michaelchoi.name: <span class="hi">@ViewBag.michaelchoi.status</span></h3><br><br>
+    <form action="/reset" method="post">
+        <button>RESET GAME</button>
+    </form>
 </body>
 </html>
