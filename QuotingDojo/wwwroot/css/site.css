@@ -1,0 +1,8 @@
+/*Write all of your CSS here*/
+button {
+    background-color: rgb(185, 235, 255);
+    margin: 5px;
+}
+* {
+    color: rgb(118, 180, 205);
+}
