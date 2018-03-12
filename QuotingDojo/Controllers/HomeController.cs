@@ -14,17 +14,19 @@ namespace QuotingDojo.Controllers
         {
             return View("Index");
         }
-        [HttpGet]
-        [Route("quotes")]
-        public IActionResult Quotes()
-        {
-            return View("Quotes");
-        }
+        // [HttpGet]
+        // [Route("quotes")]
+        // public IActionResult Quotes()
+        // {
+        //     return View("Quotes");
+        // }
         [HttpPost]
         [Route("quotes")]
-        public IActionResult CreateQuote()
+        public IActionResult CreateQuote(string name, string quote)
         {
-            return RedirectToAction("Index");
+            ViewBag.name = name;
+            ViewBag.quote = quote;
+            return View("Quotes");
         }
     }
 }

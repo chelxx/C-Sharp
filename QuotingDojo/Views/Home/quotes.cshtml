@@ -3,3 +3,14 @@
 }
 <h1>Here are the awesome quotes!</h1>
 <hr>
+@{
+    string name = ViewBag.name;
+    string quote = ViewBag.quote; 
+}
+<blockquote>
+    <h3>@ViewBag.quote</h3>
+    <i><footer>@ViewBag.name</footer></blockquote></i>
+</blockquote>
+<form action="/" method="get">
+    <button class="btn">BACK TO HOME</button>
+</form>
