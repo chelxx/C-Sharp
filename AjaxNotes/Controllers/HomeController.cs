@@ -43,7 +43,6 @@ namespace AjaxNotes.Controllers
             DbConnector.Execute(deletequery);
             return RedirectToAction("Index");
         }
-
         [HttpGet]
         [Route("update/{id}")]
         public IActionResult ShowNote(int id, string notetitle, string notedescription)
