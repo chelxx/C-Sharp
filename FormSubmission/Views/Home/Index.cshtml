@@ -3,29 +3,30 @@
 }
 <h3>Enter your information:</h3>
 <div>
-    <form action="/submit">
+    <form action="/submit" method="post">
         <table cellspacing="10">
             <tr>
                 <th>First Name: </th>
-                <td><input type="text" name="firstname"><br></td>
+                <td><input type="text" name="FirstName"><br></td>
             </tr>
             <tr>
                 <th>Last Name: </th>
-                <td><input type="text" name="lastname"><br></td>
+                <td><input type="text" name="LastName"><br></td>
             </tr>
             <tr>
                 <th>Age: </th>
-                <td><input type="text" name="age"><br></td>
+                <td><input type="text" name="Age"><br></td>
             </tr>
             <tr>
                 <th>Email Address: </th>
-                <td><input type="text" name="email"><br></td>
+                <td><input type="email" name="Email"><br></td>
             </tr>
             <tr>
                 <th>Password: </th>
-                <td><input type="text" name="password"><br></td>
+                <td><input type="password" name="Password" class="pw"><br></td>
             </tr>
         </table><br>
         <button>SUBMIT</button>
     </form>
 </div>
+

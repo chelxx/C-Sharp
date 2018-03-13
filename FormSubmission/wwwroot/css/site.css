@@ -1,4 +1,14 @@
 /*Write all of your CSS here*/
-div {
-    display: inline-block;
+button {
+    border-radius: 5px;
+    background-color: pink;
+}
+input {
+    background-color: rgb(255, 232, 236);
+}
+li {
+    color: red;
+}
+input.pw {
+    letter-spacing: 5px;
 }

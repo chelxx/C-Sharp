@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Success/Error Page";
+}
+@{
+<div>
+<h1>Successsfully Registered!</h1>
+        foreach(var error in ViewBag.allErrors)
+        {
+            //If there are any errors for a field...
+            if(@error.Errors.Count > 0)
+            {
+                // We show the first error for that field
+                <ul>
+                    <li>@error.Errors[0].ErrorMessage</li>
+                </ul>
+            }
+            else
+            {
+                <h1>Successfully Registered!</h1>
+            }
+        }
+</div>
+}
