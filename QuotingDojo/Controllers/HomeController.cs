@@ -16,8 +16,9 @@ namespace QuotingDojo.Controllers
         }
         [HttpPost]
         [Route("quotes")]
-        public IActionResult Quotes(string dojoname, string dojoquote)
+        public IActionResult Quote(string dojoname, string dojoquote)
         {
+            // Note: Add validations for the form???
             string name = dojoname;
             string quote = dojoquote;
             string insertquery = $"INSERT INTO QuotingDojo.quotes (name, quote, created_at) VALUES ('{name}', '{quote}', NOW())";
@@ -28,8 +29,9 @@ namespace QuotingDojo.Controllers
         [Route("quotes")]
         public IActionResult CreateQuote(string name, string quote)
         {
-            string readquery = $"SELECT * FROM QuotingDojo.quotes";
+            string readquery = "SELECT * FROM QuotingDojo.quotes";
             var users = DbConnector.Query(readquery);
+            ViewBag.quotingdojo = users;
             foreach(var user in users)
             {
                 ViewBag.name = user["name"];

@@ -1,14 +1,14 @@
 @{
     ViewData["Title"] = "Quotes List";
 }
-<h1>Here are the awesome quotes!</h1>
+<h1>Here are all the awesome quotes!</h1>
 <hr>
 @{
-    foreach(var user in @ViewBag.quotes)
+    foreach(var user in @ViewBag.quotingdojo)
     {
         <blockquote>
             <h3>@user["quote"]</h3>
-            <footer>@user["name"]; @user["created_at"]</footer>
+            <footer>@user["name"], @user["created_at"]</footer>
         </blockquote>
     }
 }
