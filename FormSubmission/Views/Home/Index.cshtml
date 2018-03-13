@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h3>Enter your information:</h3>
+<div>
+    <form action="/submit">
+        <table cellspacing="10">
+            <tr>
+                <th>First Name: </th>
+                <td><input type="text" name="firstname"><br></td>
+            </tr>
+            <tr>
+                <th>Last Name: </th>
+                <td><input type="text" name="lastname"><br></td>
+            </tr>
+            <tr>
+                <th>Age: </th>
+                <td><input type="text" name="age"><br></td>
+            </tr>
+            <tr>
+                <th>Email Address: </th>
+                <td><input type="text" name="email"><br></td>
+            </tr>
+            <tr>
+                <th>Password: </th>
+                <td><input type="text" name="password"><br></td>
+            </tr>
+        </table><br>
+        <button>SUBMIT</button>
+    </form>
+</div>

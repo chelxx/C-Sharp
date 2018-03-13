@@ -31,7 +31,7 @@ namespace AjaxNotes.Controllers
             string title = notetitle;
             string description = notedescription;
             // A SQL query syntax error pops up in the browser when I use apostrophes in my sentences??? 
-            string insertquery = $"INSERT INTO AjaxNotes.notes (title, description, created_at) VALUES ('{title}', '{description}', NOW())";
+            string insertquery = $"INSERT INTO AjaxNotes.notes (title, description, created_at) VALUES(\"{title}\", \"{description}\", NOW())";
             var users = DbConnector.Query(insertquery);
             return RedirectToAction("Index");
         }
@@ -39,7 +39,7 @@ namespace AjaxNotes.Controllers
         [Route("delete/{id}")]
         public IActionResult DeleteNote(int id)
         {
-            string deletequery = $"DELETE FROM AjaxNotes.notes WHERE id='{id}'";
+            string deletequery = $"DELETE FROM AjaxNotes.notes WHERE id={id}";
             DbConnector.Execute(deletequery);
             return RedirectToAction("Index");
         }
@@ -63,7 +63,7 @@ namespace AjaxNotes.Controllers
         {
             string title = notetitle;
             string description = notedescription;
-            string updatequery = $"UPDATE AjaxNotes.notes SET title='{title}', description='{description}' WHERE id='{id}'";
+            string updatequery = $"UPDATE AjaxNotes.notes SET title=\"{title}\", description=\"{description}\" WHERE id={id}";
             DbConnector.Execute(updatequery);
             return RedirectToAction("Index");
         } 
