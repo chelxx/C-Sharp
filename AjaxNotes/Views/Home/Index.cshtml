@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="noteform">
+    <h2 class="add">Add Note:</h2>
+    <form action="/addnote" method="post">
+        <input name="notetitle" type="text" placeholder="Add the note title here..." size="31"><br>
+        <textarea name="notedescription" id="" cols="30" rows="5" placeholder="Add the note description here..."></textarea><br>
+        <button>ADD A NOTE</button>
+    </form>
+</div>
+@{
+    foreach(var user in @ViewBag.ajaxnotes)
+    {
+    <div class="noteform notescard">
+        <h3 class="title">@user["title"]</h3>
+        <hr>
+        <p>@user["description"]</p>
+        <form action="/delete/@user["id"]" method="post">
+            <button>DELETE</button>
+        </form>
+        <form action="/update/@user["id"]">
+            <button>SHOW</button>
+        </form>
+    </div>
+    }
+}
+<!-- START OF AJAX -->
+<script>
+    $(document).ready(function(){
+
+    });
+</script>
+<!-- END OF AJAX -->

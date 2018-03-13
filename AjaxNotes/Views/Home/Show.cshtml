@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Update";
+}
+@{
+    foreach(var user in @ViewBag.ajaxnotes)
+    {
+    <div class="noteform">
+        <h2>Update Note</h2>
+        <form action="/update/@user["id"]" method="post">
+            Title: <br><input name="notetitle" type="text" size="31" value="@user["title"]"><br>
+            Description: <br><textarea name="notedescription" id="" cols="30" rows="5">@user["description"]</textarea><br>
+            <button>UPDATE NOTE</button>
+        </form>
+    <form action="/">
+        <button>HOME</button>
+    </form>
+    </div>
+    }
+}

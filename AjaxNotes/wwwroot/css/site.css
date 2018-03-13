@@ -1,0 +1,38 @@
+/*Write all of your CSS here*/
+button {
+    background-color: rgb(209, 240, 97);
+    border-radius: 10px;
+    padding: 5px;
+}
+.noteform {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    padding: 5px;
+    text-align:center;
+}
+.notescard {
+    height: 250px;
+    width: 250px;
+    border: solid gray 1px;
+    overflow: scroll;
+}
+input, textarea {
+    background-color: rgb(246, 255, 215);
+}
+* {
+    color: gray;
+}
+h3.title {
+    margin: 0px;
+    text-align: center;
+}
+hr {
+    margin: 5px;
+}
+h2.add {
+    text-align: left;
+}
+form.hello {
+    display: inline-block;
+}
