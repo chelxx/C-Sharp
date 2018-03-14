@@ -1,1 +1,17 @@
 /*Write all of your CSS here*/
+* {
+    color: rgb(255, 140, 159);
+}
+button {
+    background-color: rgb(255, 212, 219);
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+}
+div.side {
+    display: inline-block;
+}
+button.sup {
+    color: white;
+    background-color: rgb(255, 185, 197);
+}

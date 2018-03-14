@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Error Page";
+}
+<div>
+@{
+    <h1>Errors:</h1>
+    foreach(var error in ViewBag.allErrors)
+    {
+        //If there are any errors for a field...
+        if(@error.Errors.Count > 0)
+        {
+            // We show the first error for that field
+            <ul>
+                <li>@error.Errors[0].ErrorMessage</li>
+            </ul>
+        }
+    }
+}
+</div>
+<br>
+<br>
+<br>
+<form asp-controller="Home" asp-action="Index" method="get">
+    <button class="sup">HOME</button>
+</form>
+<br>
+<form asp-controller="Home" asp-action="Login" method="get">
+    <button class="sup">LOG IN</button>
+</form>
