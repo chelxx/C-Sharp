@@ -30,8 +30,8 @@ namespace LoginReg.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage="Confirm Password field is required")]
-        [Compare("Password", ErrorMessage="Confirmation Password should be more than 8 characters!")]
         [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage="Confirmation Password should be more than 8 characters!")]
         public string ConfirmPassword { get; set; }
     }
     public class LoginUser : BaseEntity

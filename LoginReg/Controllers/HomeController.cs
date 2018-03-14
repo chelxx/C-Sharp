@@ -23,7 +23,7 @@ namespace LoginReg.Controllers
         {
             if (ModelState.IsValid) // IF NO VALIDATION ERRORS
             {
-                string emailquery = $"SELECT * FROM users WHERE(email = '{user.Email}')";
+                string emailquery = $"SELECT * FROM LoginReg.users WHERE(email = '{user.Email}')";
                 var email = DbConnector.Query(emailquery);
                 if (email.Count == 0)
                 {
@@ -59,21 +59,17 @@ namespace LoginReg.Controllers
         {
             if (ModelState.IsValid) // IF NO VALIDATION ERRORS
             {
-                string emailquery = $"SELECT * FROM users WHERE(Email = '{user.Email}')";
-                var email = DbConnector.Query(emailquery);
-                string passwordquery = $"SELECT * FROM users WHERE(Password = '{user.Password}')";
-                var password = DbConnector.Query(passwordquery);
-                if (email.Count == 1 )
+                string loginquery = $"SELECT * FROM LoginReg.users WHERE(Email = '{user.Email}' AND Password = '{user.Password}')";
+                var login = DbConnector.Query(loginquery);
+                if (login.Count == 1)
                 {
                     return View("Success");
                 }
                 else
                 {
-                    ViewBag.Email = "Email does not exist!";
-                    ViewBag.Password = "Incorrect Password!";
+                    ViewBag.Email = "Email or Password is incorrect!";
                     return View("Login");
                 }
-                // HOW DO I VALIDATE A PASSWORD FROM THE DATABASE AND COMPARE IT TO THE LOGIN INPUT????
             }
             else // IF THERE ARE VALIDATION ERRORS
             {
@@ -90,3 +86,7 @@ namespace LoginReg.Controllers
         }
     }
 }
+// Notes:
+// #1. How do I check if session is working?
+// #2. I want to display the CURRENT user's name when they register or log in. How do I do that? 
+    // I know it has something to do with session... But how? :(
