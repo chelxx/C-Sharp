@@ -30,9 +30,9 @@ namespace FormSubmission.Controllers
             else
             {
                 ViewBag.allErrors = ModelState.Values;
-                ViewBag.status = "fail";
-                return View("Success");
+                return View("Unsuccess");
             }
         }
     }
 }
+// Note: I wanted it so that the Success view can either print the success message or the errors. HTML will not allow if-else statements!!!!! :(

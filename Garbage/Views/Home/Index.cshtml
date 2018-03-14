@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>Register:</h2>
+<table cellspacing="10">
+    <form asp-controller="User" asp-action="/register" method="post">
+    <tr>
+        <th>First Name: </th>
+        <td><input type="text" asp-for="FirstName"></td>
+    </tr>
+    <tr>
+        <th>Last Name: </th>
+        <td><<input type="text" asp-for="LastName">/td>
+    </tr>
+    <tr>
+        <th>Email: </th>
+        <td><input type="text" asp-for="Email"></td>
+    </tr>
+    <tr>
+        <th>Password: </th>
+        <td><input type="text" asp-for="Password"></td>
+    </tr>
+    <tr>
+        <th>Confirm Password: </th>
+        <td><input type="text" asp-for="ConfirmPassword"></td>
+    </tr>
+    </form>
+</table>
+<br>
+<br>
+<h2>Log In:</h2>
+<table cellspacing="10">
+    <form asp-controller="User" asp-action="/register" method="post">
+    <tr>
+        <th>Email: </th>
+        <td><input type="text" asp-for="Email"></td>
+    </tr>
+    <tr>
+        <th>Password: </th>
+        <td><input type="text" asp-for="Password"></td>
+    </tr>
+    </form>
+</table>

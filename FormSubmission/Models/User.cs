@@ -20,11 +20,11 @@ namespace FormSubmission.Models
         [MinLength(2, ErrorMessage="Last Name should be more than 2 characters!")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage="Age field is required")]
+        [Required(ErrorMessage="Age field is required.")]
         [Range(0,120,ErrorMessage="Age must be between 0 and 120")]
         public string Age { get; set; }
  
-        [Required(ErrorMessage="Email Address field is required")]
+        [Required(ErrorMessage="Email Address field is required.")]
         [EmailAddress]
         public string Email { get; set; }
  
