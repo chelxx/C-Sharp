@@ -50,5 +50,8 @@ namespace TheWall.Models
         [Required]
         [MinLength(2, ErrorMessage="Message should be more than 2 characters!")]
         public string Message { get; set; }
+        [Required]
+        [MinLength(2, ErrorMessage="Comment should be more than 2 characters!")]
+        public string Comment { get; set; }
     }
 }

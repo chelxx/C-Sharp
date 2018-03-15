@@ -2,7 +2,7 @@
     ViewData["Title"] = "CodingDojo";
 }
 @model TheWall.Models.WallMessage
-<h2>Welcome, @ViewBag.WelcomeName!</h2>
+<h2>Welcome, @ViewBag.WelcomeName @ViewBag.WelcomeName2!</h2>
 <form action="/logout" method="post">
     <button class="sup">LOG OUT</button>
 </form>
@@ -26,8 +26,12 @@
     foreach(var user in @ViewBag.thewall)
     {
         <blockquote>
-            <p class="header">@user["FirstName"] @user["LastName"], @user["created_at"]</p>
-            <p>@user["Message"]</p>
+            <form asp-controller="Home" asp-action="PostComment" asp-route-id="postcomment/@user["id"]" method="post">
+                <p class="header">@user["FirstName"] @user["LastName"], @user["created_at"] @user["id"]</p>
+                <p>@user["Message"]</p>
+                <textarea cols="50" rows="3" asp-for="Comment" class="textcom"></textarea><br>
+                <button class="comment sup">POST COMMENT</button>
+            </form>
         </blockquote>
     }
 }

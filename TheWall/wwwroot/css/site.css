@@ -23,3 +23,12 @@ p.header {
 textarea {
     border: solid 1px rgb(255, 166, 0);
 }
+button.comment {
+    padding: 0px 3px 0px 3px;
+    font-size: 10px;
+    height: 20px;
+}
+textarea.textcom {
+    font-size: 10px;
+    color: rgb(255, 166, 0);
+}

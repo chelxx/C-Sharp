@@ -30,7 +30,8 @@ namespace TheWall.Controllers
                     string insertquery = $"INSERT INTO TheWall.users (FirstName, LastName, Email, Password, created_at, updated_at) VALUES ('{user.FirstName}','{user.LastName}','{user.Email}','{user.Password}', NOW(), NOW())";
                     DbConnector.Execute(insertquery);
                     HttpContext.Session.SetString("user", user.Email);
-                    HttpContext.Session.SetString("username", user.FirstName);
+                    HttpContext.Session.SetString("firstname", user.FirstName);
+                    HttpContext.Session.SetString("lastname", user.LastName);
                     var sessionquery = DbConnector.Query(emailquery);
                     int sessionID = (int)sessionquery[0]["id"];
                     HttpContext.Session.SetInt32("id", sessionID);
@@ -59,7 +60,8 @@ namespace TheWall.Controllers
         [Route("success")]
         public IActionResult Success()
         {
-            ViewBag.WelcomeName = HttpContext.Session.GetString("username");
+            ViewBag.WelcomeName = HttpContext.Session.GetString("firstname");
+            ViewBag.WelcomeName2 = HttpContext.Session.GetString("lastname");
             string readquery = @"SELECT  messages.id, messages.Message, messages.created_at, messages.updated_at, messages.user_id,
                                 users.FirstName, users.LastName
                                 FROM TheWall.messages 
@@ -76,6 +78,7 @@ namespace TheWall.Controllers
                 ViewBag.LastName = user["LastName"];
                 ViewBag.created_at = user["created_at"];
                 ViewBag.Message = user["Message"];
+                ViewBag.MessageID = user["id"];
             }
             return View("Success");
         }
@@ -90,11 +93,16 @@ namespace TheWall.Controllers
                 string emailquery = $"SELECT * FROM TheWall.users WHERE(email = '{user.Email}')";                
                 var sessionquery = DbConnector.Query(emailquery);
                 int sessionID = (int)sessionquery[0]["id"];
+                string fname = (string)sessionquery[0]["FirstName"];
+                string lname = (string)sessionquery[0]["LastName"];
                 HttpContext.Session.SetInt32("id", sessionID);
-                // HttpContext.Session.SetString("username", user.FirstName);
                 var login = DbConnector.Query(loginquery);
                 if (login.Count == 1)
                 {
+                    HttpContext.Session.SetString("firstname", fname);
+                    HttpContext.Session.SetString("lastname", lname);
+                    ViewBag.WelcomeName = HttpContext.Session.GetString("firstname");
+                    ViewBag.WelcomeName2 = HttpContext.Session.GetString("lastname");
                     return RedirectToAction("Success");
                 }
                 else
@@ -117,7 +125,7 @@ namespace TheWall.Controllers
             return RedirectToAction("Index");
         }
 
-        // ************** THE WALL ************** //
+        // ************** THE MESSAGES ************** //
 
         [HttpPost]
         [Route("postmessage")]
@@ -130,6 +138,21 @@ namespace TheWall.Controllers
             DbConnector.Execute(insertmessagequery);
             return RedirectToAction("Success");
         }
+
+        // ************** THE COMMENTS ************** //
+
+        [HttpPost]
+        [Route("postcomment/{messageID}")]
+        public IActionResult PostComment(string Comment, int messageID)
+        {
+            // I STILL NEED TO DO IF-ELSE STATEMENTS TO INCLUDE VALIDATIONS
+            System.Console.WriteLine("***** INSERTING COMMENT QUERY *****");
+            int? userID = HttpContext.Session.GetInt32("id");
+            string insertcommentquery = $"INSERT INTO TheWall.comments (Comment, user_id, message_id, created_at, updated_at) VALUES (\"{Comment}\", {userID}, {messageID}, NOW(), NOW())";
+            DbConnector.Execute(insertcommentquery);
+            return RedirectToAction("Success");
+        }
+
     }
 }
 // Notes:
