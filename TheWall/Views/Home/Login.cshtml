@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Log In";
+}
+@model TheWall.Models.LoginUser
+<h1 align="left"><strong>THE WALL</strong></h1>
+<h2>LOG IN:</h2>
+<table cellspacing="10">
+    <form asp-controller="Home" asp-action="/login" method="post">
+    <tr>
+        <th>Email: </th>
+        <td><input type="email" asp-for="Email">@ViewBag.name</td>
+    </tr>
+    <tr>
+        <th>Password: </th>
+        <td><input type="password" asp-for="Password"></td>
+    </tr>
+    <tr><td><br></td></tr>
+    <tr>
+        <td><button>LOG IN</button></td>
+    </tr>
+    </form>
+</table>
+<br>
+<br>
+<br>
+<form asp-controller="Home" asp-action="Index" method="get">
+    <button class="sup">HOME</button>
+</form>

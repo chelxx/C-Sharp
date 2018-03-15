@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Register";
+}
+@model TheWall.Models.RegUser
+<h1 align="left"><strong>THE WALL</strong></h1>
+<h2>REGISTER:</h2>
+<table cellspacing="10">
+    <form asp-controller="Home" asp-action="RegisterUser" method="post">
+    <tr>
+        <th>First Name: </th>
+        <td><input type="text" asp-for="FirstName"></td>
+    </tr>
+    <tr>
+        <th>Last Name: </th>
+        <td><input type="text" asp-for="LastName"></td>
+    </tr>
+    <tr>
+        <th>Email: </th>
+        <td><input type="text" asp-for="Email"></td>
+    </tr>
+    <tr>
+        <th>Password: </th>
+        <td><input type="password" asp-for="Password">@ViewBag.Password</td>
+    </tr>
+    <tr>
+        <th>Confirm PW: </th>
+        <td><input type="password" asp-for="ConfirmPassword"></td>
+    </tr>
+    <tr><td><br></td></tr>
+    <tr>
+        <td><button>REGISTER</button></td>
+    </tr>
+    </form>
+</table>
+<br>
+<hr>
+<br>
+<form asp-controller="Home" asp-action="Login" method="get">
+    <button class="sup">IF YOU'RE ALREADY REGISTERED, PLEASE LOG IN</button>
+</form>

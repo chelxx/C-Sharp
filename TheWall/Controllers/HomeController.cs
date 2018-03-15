@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using LoginReg.Models;
+using TheWall.Models;
 
-namespace LoginReg.Controllers
+namespace TheWall.Controllers
 {
     public class HomeController : Controller
     {
@@ -23,13 +23,13 @@ namespace LoginReg.Controllers
         {
             if (ModelState.IsValid) // IF NO VALIDATION ERRORS
             {
-                string emailquery = $"SELECT * FROM LoginReg.users WHERE(email = '{user.Email}')";
+                string emailquery = $"SELECT * FROM TheWall.users WHERE(email = '{user.Email}')";
                 var email = DbConnector.Query(emailquery);
                 if (email.Count == 0)
                 {
-                    string insertquery = $"INSERT INTO LoginReg.users (FirstName, LastName, Email, Password) VALUES ('{user.FirstName}','{user.LastName}','{user.Email}','{user.Password}')";
+                    string insertquery = $"INSERT INTO TheWall.users (FirstName, LastName, Email, Password, created_at, updated_at) VALUES ('{user.FirstName}','{user.LastName}','{user.Email}','{user.Password}', NOW(), NOW())";
                     DbConnector.Execute(insertquery);
-                    HttpContext.Session.SetString("user", user.FirstName);
+                    HttpContext.Session.SetString("user", user.Email);
                     var sessionquery = DbConnector.Query(emailquery);
                     int sessionId = (int)sessionquery[0]["id"];
                     return View("Success");
@@ -59,7 +59,7 @@ namespace LoginReg.Controllers
         {
             if (ModelState.IsValid) // IF NO VALIDATION ERRORS
             {
-                string loginquery = $"SELECT * FROM LoginReg.users WHERE(Email = '{user.Email}' AND Password = '{user.Password}')";
+                string loginquery = $"SELECT * FROM TheWall.users WHERE(Email = '{user.Email}' AND Password = '{user.Password}')";
                 var login = DbConnector.Query(loginquery);
                 if (login.Count == 1)
                 {
@@ -73,7 +73,6 @@ namespace LoginReg.Controllers
             }
             else // IF THERE ARE VALIDATION ERRORS
             {
-                ViewBag.Email = "Email or Password is incorrect!";
                 ViewBag.allErrors = ModelState.Values;
                 return View("Unsuccess");
             }
@@ -85,9 +84,17 @@ namespace LoginReg.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
+
+        // ************** THE WALL ************** //
+
+        [HttpPost]
+        [Route("postmessage")]
+        public IActionResult PostMessage(string Message)
+        {
+            int? id = HttpContext.Session.GetInt32("id");
+            int userID = (int)id;
+            string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id, created_at, updated_at) VALUES ('{Message}', {userID}, NOW(), NOW())";
+            return RedirectToAction("Success");
+        }
     }
 }
-// Notes:
-// #1. How do I check if session is working?
-// #2. I want to display the CURRENT user's name when they register or log in. How do I do that? 
-    // I know it has something to do with session... But how? :(

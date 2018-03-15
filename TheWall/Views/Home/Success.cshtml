@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "CodingDojo";
+}
+<h2>Welcome, !</h2>
+<form action="/logout" method="post">
+    <button class="sup">LOG OUT</button>
+</form>
+<hr>
+<table>
+    <form action="/postmessage" method="post">
+    <tr>
+        <th>Post a message:</th>
+    </tr>
+    <tr>
+        <td><textarea cols="80" rows="5" name="Message"></textarea></td>
+    </tr>
+    <tr>
+        <td align="right"><button>POST MESSAGE</button></td>
+    </tr>
+    </form>
+</table>
+<!-- START OF MESSAGES AND COMMENTS -->
+
+<!-- END OF MESSAGES AND COMMENTS -->
