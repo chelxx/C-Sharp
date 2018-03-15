@@ -30,10 +30,11 @@ namespace TheWall.Controllers
                     string insertquery = $"INSERT INTO TheWall.users (FirstName, LastName, Email, Password, created_at, updated_at) VALUES ('{user.FirstName}','{user.LastName}','{user.Email}','{user.Password}', NOW(), NOW())";
                     DbConnector.Execute(insertquery);
                     HttpContext.Session.SetString("user", user.Email);
+                    HttpContext.Session.SetString("username", user.FirstName);
                     var sessionquery = DbConnector.Query(emailquery);
                     int sessionID = (int)sessionquery[0]["id"];
                     HttpContext.Session.SetInt32("id", sessionID);
-                    return View("Success");
+                    return RedirectToAction("Success");
                 }
                 else
                 {
@@ -58,9 +59,17 @@ namespace TheWall.Controllers
         [Route("success")]
         public IActionResult Success()
         {
-            string readquery = "SELECT * FROM TheWall.messages JOIN TheWall.users ON TheWall.messages.user_id WHERE (user_id = messages.user_id)";
+            ViewBag.WelcomeName = HttpContext.Session.GetString("username");
+            string readquery = @"SELECT  messages.id, messages.Message, messages.created_at, messages.updated_at, messages.user_id,
+                                users.FirstName, users.LastName
+                                FROM TheWall.messages 
+                                JOIN TheWall.users 
+                                ON TheWall.messages.user_id 
+                                WHERE (users.id = messages.user_id)
+                                ORDER BY messages.created_at DESC";
             var users = DbConnector.Query(readquery);
             ViewBag.thewall = users;
+            int? userID = HttpContext.Session.GetInt32("id");
             foreach(var user in users)
             {
                 ViewBag.FirstName = user["FirstName"];
@@ -82,10 +91,11 @@ namespace TheWall.Controllers
                 var sessionquery = DbConnector.Query(emailquery);
                 int sessionID = (int)sessionquery[0]["id"];
                 HttpContext.Session.SetInt32("id", sessionID);
+                // HttpContext.Session.SetString("username", user.FirstName);
                 var login = DbConnector.Query(loginquery);
                 if (login.Count == 1)
                 {
-                    return View("Success");
+                    return RedirectToAction("Success");
                 }
                 else
                 {
