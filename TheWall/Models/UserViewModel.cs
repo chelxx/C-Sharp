@@ -24,12 +24,12 @@ namespace TheWall.Models
         [EmailAddress]
         public string Email { get; set; }
  
-        [Required(ErrorMessage="Password field is required")]
+        [Required(ErrorMessage="Password field is required.")]
         [MinLength(8, ErrorMessage="Password should be more than 8 characters!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage="Confirm Password field is required")]
+        [Required(ErrorMessage="Confirm Password field is required.")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage="Confirmation Password should be more than 8 characters!")]
         public string ConfirmPassword { get; set; }

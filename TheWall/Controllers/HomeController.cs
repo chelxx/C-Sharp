@@ -58,7 +58,16 @@ namespace TheWall.Controllers
         [Route("success")]
         public IActionResult Success()
         {
-            // GETTING THE SUCCESS PAGE. NOTHING MORE, NOTHING LESS
+            string readquery = "SELECT * FROM TheWall.messages JOIN TheWall.users ON TheWall.messages.user_id WHERE (user_id = messages.user_id)";
+            var users = DbConnector.Query(readquery);
+            ViewBag.thewall = users;
+            foreach(var user in users)
+            {
+                ViewBag.FirstName = user["FirstName"];
+                ViewBag.LastName = user["LastName"];
+                ViewBag.created_at = user["created_at"];
+                ViewBag.Message = user["Message"];
+            }
             return View("Success");
         }
         [HttpPost]
@@ -69,6 +78,10 @@ namespace TheWall.Controllers
             {
                 // IF PASSWORD IS HASHED, ADD THAT BUSINESS HERE AND MODIFY LOGINQUERY
                 string loginquery = $"SELECT * FROM TheWall.users WHERE(Email = '{user.Email}' AND Password = '{user.Password}')";
+                string emailquery = $"SELECT * FROM TheWall.users WHERE(email = '{user.Email}')";                
+                var sessionquery = DbConnector.Query(emailquery);
+                int sessionID = (int)sessionquery[0]["id"];
+                HttpContext.Session.SetInt32("id", sessionID);
                 var login = DbConnector.Query(loginquery);
                 if (login.Count == 1)
                 {
@@ -100,10 +113,10 @@ namespace TheWall.Controllers
         [Route("postmessage")]
         public IActionResult PostMessage(string Message)
         {
-            // I STILL NEED TO DO IF-ELSE STATEMENTS IN CASE OF ERRORS
+            // I STILL NEED TO DO IF-ELSE STATEMENTS TO INCLUDE VALIDATIONS
             System.Console.WriteLine("***** INSERTING MESSAGE QUERY *****");
             int? userID = HttpContext.Session.GetInt32("id");
-            string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id) VALUES ('{Message}', {userID})";
+            string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id) VALUES (\"{Message}\", {userID})";
             DbConnector.Execute(insertmessagequery);
             return RedirectToAction("Success");
         }
