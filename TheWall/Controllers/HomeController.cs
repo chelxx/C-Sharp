@@ -31,7 +31,8 @@ namespace TheWall.Controllers
                     DbConnector.Execute(insertquery);
                     HttpContext.Session.SetString("user", user.Email);
                     var sessionquery = DbConnector.Query(emailquery);
-                    int sessionId = (int)sessionquery[0]["id"];
+                    int sessionID = (int)sessionquery[0]["id"];
+                    HttpContext.Session.SetInt32("id", sessionID);
                     return View("Success");
                 }
                 else
@@ -89,12 +90,14 @@ namespace TheWall.Controllers
 
         [HttpPost]
         [Route("postmessage")]
-        public IActionResult PostMessage(string Message)
+        public IActionResult PostMessage(string Message, int user_id)
         {
             int? id = HttpContext.Session.GetInt32("id");
             int userID = (int)id;
             string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id, created_at, updated_at) VALUES ('{Message}', {userID}, NOW(), NOW())";
+            DbConnector.Execute(insertmessagequery);
             return RedirectToAction("Success");
+            
         }
     }
 }
