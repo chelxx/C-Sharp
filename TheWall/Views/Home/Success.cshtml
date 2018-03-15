@@ -1,18 +1,19 @@
 @{
     ViewData["Title"] = "CodingDojo";
 }
-<h2>Welcome, !</h2>
+@model TheWall.Models.WallMessage
+<h2>Welcome, *NAME HERE*!</h2>
 <form action="/logout" method="post">
     <button class="sup">LOG OUT</button>
 </form>
 <hr>
 <table>
-    <form action="/postmessage" method="post">
+    <form asp-controller="Home" asp-action="PostMessage" method="post">
     <tr>
         <th>Post a message:</th>
     </tr>
     <tr>
-        <td><textarea cols="80" rows="5" name="Message"></textarea></td>
+        <td><textarea cols="80" rows="5" asp-for="Message"></textarea></td>
     </tr>
     <tr>
         <td align="right"><button>POST MESSAGE</button></td>
@@ -20,5 +21,9 @@
     </form>
 </table>
 <!-- START OF MESSAGES AND COMMENTS -->
-
+<!-- THIS IS A HARDCODED SAMPLE LOL -->
+    <blockquote>
+        <p class="header">Michael Choi, March 14, 2018</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </blockquote>
 <!-- END OF MESSAGES AND COMMENTS -->

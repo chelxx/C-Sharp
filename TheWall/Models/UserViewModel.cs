@@ -45,4 +45,10 @@ namespace TheWall.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }
+    public class WallMessage : BaseEntity
+    {
+        [Required]
+        [MinLength(2, ErrorMessage="Message should be more than 2 characters!")]
+        public string Message { get; set; }
+    }
 }

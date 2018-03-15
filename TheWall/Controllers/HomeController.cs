@@ -54,12 +54,20 @@ namespace TheWall.Controllers
             // GETTING THE LOGIN PAGE. NOTHING MORE, NOTHING LESS
             return View("Login");
         }
+        [HttpGet]
+        [Route("success")]
+        public IActionResult Success()
+        {
+            // GETTING THE SUCCESS PAGE. NOTHING MORE, NOTHING LESS
+            return View("Success");
+        }
         [HttpPost]
         [Route("login")]
         public IActionResult LoginUser(LoginUser user)
         {
             if (ModelState.IsValid) // IF NO VALIDATION ERRORS
             {
+                // IF PASSWORD IS HASHED, ADD THAT BUSINESS HERE AND MODIFY LOGINQUERY
                 string loginquery = $"SELECT * FROM TheWall.users WHERE(Email = '{user.Email}' AND Password = '{user.Password}')";
                 var login = DbConnector.Query(loginquery);
                 if (login.Count == 1)
@@ -90,14 +98,18 @@ namespace TheWall.Controllers
 
         [HttpPost]
         [Route("postmessage")]
-        public IActionResult PostMessage(string Message, int user_id)
+        public IActionResult PostMessage(string Message)
         {
-            int? id = HttpContext.Session.GetInt32("id");
-            int userID = (int)id;
-            string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id, created_at, updated_at) VALUES ('{Message}', {userID}, NOW(), NOW())";
+            // I STILL NEED TO DO IF-ELSE STATEMENTS IN CASE OF ERRORS
+            System.Console.WriteLine("***** INSERTING MESSAGE QUERY *****");
+            int? userID = HttpContext.Session.GetInt32("id");
+            string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id) VALUES ('{Message}', {userID})";
             DbConnector.Execute(insertmessagequery);
             return RedirectToAction("Success");
-            
         }
     }
 }
+// Notes:
+// #1. How do I append the foreach errors on the same page?
+// #2. How do I use session?
+// #3. Password Hashing?
