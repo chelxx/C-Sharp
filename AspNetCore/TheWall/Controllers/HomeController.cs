@@ -156,6 +156,7 @@ namespace TheWall.Controllers
         [Route("postmessage")]
         public IActionResult PostMessage(string Message)
         {
+            // WIP
             // if(Message.Length > 0)
             // {
                 System.Console.WriteLine("***** INSERTING MESSAGE QUERY *****");
@@ -169,6 +170,7 @@ namespace TheWall.Controllers
             //     ViewBag.MessageLength = "Your Message cannot be blank!";
             //     return View("Success");
             // }
+            // WIP
         }
 
         // ************** THE COMMENTS ************** //
@@ -177,6 +179,7 @@ namespace TheWall.Controllers
         [Route("postcomment/{id}")]
         public IActionResult PostComment(string Comment, int id)
         {
+            // WIP
             // if(Comment.Length > 0)
             // {
                 System.Console.WriteLine("***** INSERTING COMMENT QUERY *****");
@@ -190,6 +193,7 @@ namespace TheWall.Controllers
             //     ViewBag.CommentLength = "Your Comment cannot be blank!";
             //     return View("Success");
             // }
+            // WIP
         }
 
         // ************** THE COMMENTS ************** //
@@ -201,11 +205,11 @@ namespace TheWall.Controllers
             // DELETE MESSAGE WORKS BUT THROWS AN ERROR WHEN DELETING A MESSAGE THAT HAS COMMENTS IN IT
             string deletemessagequery = $"DELETE FROM messages WHERE (id = {id})";
             DbConnector.Execute(deletemessagequery);
-            return RedirectToAction("Success");
             // WIP
-            // string deletecommentquery = $"DELETE FROM comments WHERE (id = {id})";
+            // string deletecommentquery = $"DELETE FROM comments WHERE (message_id = {id})";
             // DbConnector.Execute(deletecommentquery);
             // WIP
+            return RedirectToAction("Success");
         }
     }
 }

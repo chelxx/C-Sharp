@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/style.css"/>
+    <title>YOU WINNN!</title>
+</head>
+<body>
+    <h3 class="stats">Fullness: <span>@ViewBag.michaelchoi.fullness</span></h3>
+    <h3 class="stats">Happiness: <span>@ViewBag.michaelchoi.happiness</span></h3>
+    <h3 class="stats">Meals: <span>@ViewBag.michaelchoi.meals</span></h3>
+    <h3 class="stats">Energy: <span>@ViewBag.michaelchoi.energy</span></h3>
+    <img src="~/images/Dojodachi.gif" alt="Take care of me!">
+    <h3>@ViewBag.michaelchoi.name: <span class="hi">@ViewBag.michaelchoi.status</span></h3><br><br>
+    <form action="/reset" method="post">
+    <button>RESET GAME</button>
+    </form>
+</body>
+</html>
