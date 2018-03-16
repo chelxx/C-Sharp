@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 
-namespace LoginReg.Controllers
+namespace LostInTheWoods.Controllers
 {
     public class HomeController : Controller
     {
@@ -13,7 +13,7 @@ namespace LoginReg.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            return View("Index");
+            return View();
         }
     }
 }

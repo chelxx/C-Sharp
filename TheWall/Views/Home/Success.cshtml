@@ -4,16 +4,16 @@
 @model TheWall.Models.WallMessage
 <h2>Welcome, @ViewBag.WelcomeName @ViewBag.WelcomeName2!</h2>
 <form action="/logout" method="post">
-    <button class="sup">LOG OUT</button>
+    <button class="sup logout">LOG OUT</button>
 </form>
 <hr>
 <table>
     <form asp-controller="Home" asp-action="PostMessage" method="post">
     <tr>
-        <th>Post a message:</th>
+        <th>Post a message: <font color="red">@ViewBag.MessageLength</font></th>
     </tr>
     <tr>
-        <td><textarea cols="80" rows="5" asp-for="Message"></textarea></td>
+        <td><textarea cols="80" rows="5" asp-for="Message"><font color="red">@ViewBag.CommentLength</font></textarea></td>
     </tr>
     <tr>
         <td align="right"><button>POST MESSAGE</button></td>
@@ -26,12 +26,28 @@
     foreach(var user in @ViewBag.thewall)
     {
         <blockquote>
-            <form asp-controller="Home" asp-action="PostComment" asp-route-id="postcomment/@user["id"]" method="post">
-                <p class="header">@user["FirstName"] @user["LastName"], @user["created_at"] @user["id"]</p>
+                <p class="header">@user["FirstName"] @user["LastName"], @user["created_at"]</p>
                 <p>@user["Message"]</p>
+            @if(user["the_user_id"] == ViewBag.id)
+            {
+                <form action="/delete/@user["id"]" method="post">
+                    <button class="comment sup delete" align="center">DELETE MESSAGE</button>
+                </form>
+            }
+            <form action="/postcomment/@user["id"]" method="post">
                 <textarea cols="50" rows="3" asp-for="Comment" class="textcom"></textarea><br>
                 <button class="comment sup">POST COMMENT</button>
             </form>
+            @foreach(var comment in @ViewBag.wallcomment)
+            {
+                @if(comment["message_id"] == user["id"])
+                {
+                    <blockquote>
+                        <p class="cmnt header">@comment["FirstName"] @comment["LastName"], @comment["created_at"] @comment["message_id"]</p>
+                        <p class="cmnt">@comment["Comment"]</p>
+                    </blockquote>
+                }
+            }
         </blockquote>
     }
 }

@@ -32,3 +32,18 @@ textarea.textcom {
     font-size: 10px;
     color: rgb(255, 166, 0);
 }
+p.cmnt {
+    font-size: 11px;
+    letter-spacing: 0px;
+}
+button.delete{
+    background-color: rgb(242, 128, 108);
+    color: white;
+    padding: 0px 3px 0px 3px;
+    font-size: 10px;
+    height: 20px;
+    margin: 0px 0px 10px 0px;
+}
+button.logout {
+    background-color: rgb(242, 128, 108);
+}

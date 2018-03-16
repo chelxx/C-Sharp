@@ -62,8 +62,16 @@ namespace TheWall.Controllers
         {
             ViewBag.WelcomeName = HttpContext.Session.GetString("firstname");
             ViewBag.WelcomeName2 = HttpContext.Session.GetString("lastname");
+            // string readquery = @"SELECT  messages.id, messages.Message, messages.created_at, messages.updated_at, messages.user_id,
+            //                     users.FirstName, users.LastName
+            //                     FROM TheWall.messages 
+            //                     JOIN TheWall.users 
+            //                     ON TheWall.messages.user_id 
+            //                     WHERE (users.id = messages.user_id)
+            //                     ORDER BY messages.created_at DESC";
+
             string readquery = @"SELECT  messages.id, messages.Message, messages.created_at, messages.updated_at, messages.user_id,
-                                users.FirstName, users.LastName
+                                users.FirstName, users.LastName, users.id AS the_user_id
                                 FROM TheWall.messages 
                                 JOIN TheWall.users 
                                 ON TheWall.messages.user_id 
@@ -72,6 +80,7 @@ namespace TheWall.Controllers
             var users = DbConnector.Query(readquery);
             ViewBag.thewall = users;
             int? userID = HttpContext.Session.GetInt32("id");
+            ViewBag.id = userID;
             foreach(var user in users)
             {
                 ViewBag.FirstName = user["FirstName"];
@@ -79,6 +88,22 @@ namespace TheWall.Controllers
                 ViewBag.created_at = user["created_at"];
                 ViewBag.Message = user["Message"];
                 ViewBag.MessageID = user["id"];
+                ViewBag.user = user["the_user_id"];
+            }
+            string commentquery = @"SELECT comments.Comment, comments.created_at,  users.FirstName, users.LastName, comments.message_id 
+                                    FROM comments 
+                                    JOIN users 
+                                    ON comments.user_id 
+                                    WHERE comments.user_id = users.id";
+            var comments = DbConnector.Query(commentquery);
+            ViewBag.wallcomment = comments;
+            foreach(var comment in comments)
+            {
+                ViewBag.FirstName = comment["FirstName"];
+                ViewBag.LastName = comment["LastName"];
+                ViewBag.created_at = comment["created_at"];
+                ViewBag.Message = comment["Comment"];
+                ViewBag.MessageID = comment["message_id"];
             }
             return View("Success");
         }
@@ -131,31 +156,60 @@ namespace TheWall.Controllers
         [Route("postmessage")]
         public IActionResult PostMessage(string Message)
         {
-            // I STILL NEED TO DO IF-ELSE STATEMENTS TO INCLUDE VALIDATIONS
-            System.Console.WriteLine("***** INSERTING MESSAGE QUERY *****");
-            int? userID = HttpContext.Session.GetInt32("id");
-            string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id) VALUES (\"{Message}\", {userID})";
-            DbConnector.Execute(insertmessagequery);
-            return RedirectToAction("Success");
+            // if(Message.Length > 0)
+            // {
+                System.Console.WriteLine("***** INSERTING MESSAGE QUERY *****");
+                int? userID = HttpContext.Session.GetInt32("id");
+                string insertmessagequery = $"INSERT INTO TheWall.messages (Message, user_id) VALUES (\"{Message}\", {userID})";
+                DbConnector.Execute(insertmessagequery);
+                return RedirectToAction("Success");
+            // }
+            // else
+            // {
+            //     ViewBag.MessageLength = "Your Message cannot be blank!";
+            //     return View("Success");
+            // }
         }
 
         // ************** THE COMMENTS ************** //
 
         [HttpPost]
-        [Route("postcomment/{messageID}")]
-        public IActionResult PostComment(string Comment, int messageID)
+        [Route("postcomment/{id}")]
+        public IActionResult PostComment(string Comment, int id)
         {
-            // I STILL NEED TO DO IF-ELSE STATEMENTS TO INCLUDE VALIDATIONS
-            System.Console.WriteLine("***** INSERTING COMMENT QUERY *****");
-            int? userID = HttpContext.Session.GetInt32("id");
-            string insertcommentquery = $"INSERT INTO TheWall.comments (Comment, user_id, message_id, created_at, updated_at) VALUES (\"{Comment}\", {userID}, {messageID}, NOW(), NOW())";
-            DbConnector.Execute(insertcommentquery);
-            return RedirectToAction("Success");
+            // if(Comment.Length > 0)
+            // {
+                System.Console.WriteLine("***** INSERTING COMMENT QUERY *****");
+                int? userID = HttpContext.Session.GetInt32("id");
+                string insertcommentquery = $"INSERT INTO TheWall.comments (Comment, user_id, message_id, created_at, updated_at) VALUES (\"{Comment}\", {userID}, {id}, NOW(), NOW())";
+                DbConnector.Execute(insertcommentquery);
+                return RedirectToAction("Success");
+            // }
+            // else
+            // {
+            //     ViewBag.CommentLength = "Your Comment cannot be blank!";
+            //     return View("Success");
+            // }
         }
 
+        // ************** THE COMMENTS ************** //
+
+        [HttpPost]
+        [Route("delete/{id}")]
+        public IActionResult DeleteMine(string Comment, int id)
+        {
+            // DELETE MESSAGE WORKS BUT THROWS AN ERROR WHEN DELETING A MESSAGE THAT HAS COMMENTS IN IT
+            string deletemessagequery = $"DELETE FROM messages WHERE (id = {id})";
+            DbConnector.Execute(deletemessagequery);
+            return RedirectToAction("Success");
+            // WIP
+            // string deletecommentquery = $"DELETE FROM comments WHERE (id = {id})";
+            // DbConnector.Execute(deletecommentquery);
+            // WIP
+        }
     }
 }
-// Notes:
+// Notes=[;.'][;]
 // #1. How do I append the foreach errors on the same page?
 // #2. How do I use session?
 // #3. Password Hashing?
