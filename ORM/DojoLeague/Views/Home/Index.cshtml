@@ -1,5 +1,45 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Ninjas Page";
 }
-<h1>Default Blank Page~</h1>
-<p>Get to adding stuff</p>
+@models DojoLeague.Models.
+<h2>Registered Ninjas:</h2>
+<table>
+    <tr>
+        <th>Ninja Name</th>
+        <th>Home Dojo</th>
+    </tr>
+<!-- FOREACH FOR LIST OF NINJAS HERE -->
+    <tr>
+        <td>NAME</td>
+        <td>DOJO</td>
+    </tr>
+<!-- END OF FOREACH -->
+</table>
+
+
+
+
+<h2>Register A Ninja:</h2>
+<table>
+    <form asp-action="" asp-controller="" method="post">
+    <tr>
+        <th>Ninja Name: </th>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Ninja Level (1-10): </th>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Assigned Dojo: </th>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Optional Description: </th>
+        <td></td>
+    </tr>
+    <tr>
+        <td><button>ADD NINJA</button></td>
+    </tr>
+    </form>
+</table>
