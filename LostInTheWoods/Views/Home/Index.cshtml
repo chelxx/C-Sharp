@@ -2,3 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 <h1>Lost in the Woods:</h1>
+<table>
+    <tr>
+        <th>Trail Name</th>
+        <th>Trail Length</th>
+        <th>Elevation Change</th>
+        <th>Actions</th>
+    </tr>
+<!-- FOREACH THIS THING -->
+    @foreach(var trail in ViewBag.Trails)
+    {
+        <tr>
+            <td>@trail.TrailName</td>
+            <td>@trail.TrailLength</td>
+            <td>@trail.ElevationChange</td>
+            <td><a href="viewtrail/@trail.Id">VIEW TRAIL</a></td>
+        </tr>
+    }
+<!-- END OF FOREACH -->
+</table>
+
+<form action="/createtrail" method="get">
+    <button>ADD A NEW TRAIL</button>
+</form>

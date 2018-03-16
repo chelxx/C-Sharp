@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Trail Info";
+}
+<h1>@ViewBag.Trails.TrailName</h1>
+<table>
+    <tr>
+        <th class="hi">Description</th>
+        <td>@ViewBag.Trails.Description</td>
+    </tr>
+    <tr>
+        <th class="hi">TRAIL LENGTH</th>
+        <td>@ViewBag.Trails.TrailLength</td>
+    </tr>
+    <tr>
+        <th class="hi">ELEVATION CHANGE</th>
+        <td>@ViewBag.Trails.ElevationChange</td>
+    </tr>
+</table>
+<br>
+<br>
+<form action="/" method="get">
+    <button>HOME</button>
+</form>
