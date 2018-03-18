@@ -1,1 +1,33 @@
 /*Write all of your CSS here*/
+* {
+    color: rgb(39, 92, 135);
+}
+table {
+    background-color: rgb(233, 233, 233);
+    border-collapse: separate;
+    border-spacing: 15px;
+    padding: 5px;
+    margin: 0 80px 0 0;
+}
+div {
+    float: left;
+}
+div.dojo {
+    float: left;
+}
+a {
+    color: rgb(0, 133, 205);
+}
+a:hover {
+    color: tomato;
+}
+button {
+    background-color: rgb(90, 129, 160);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 5px;
+}
+textarea, input {
+    border: solid 1px rgb(90, 129, 160);
+}

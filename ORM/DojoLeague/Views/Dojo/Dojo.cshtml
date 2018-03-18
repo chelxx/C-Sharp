@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Dojos Page";
+}
+<form action="/" method="get" class="home">
+    <button>HOME</button>
+</form>
+
+<h1>@ViewBag.Dojos.DojoName</h1>
+<table>
+    <tr>
+        <th class="hi">LOCATION: </th>
+        <td>@ViewBag.Dojos.DojoLocation</td>
+    </tr>
+    <tr>
+        <th class="hi">DOJO INFORMATION: </th>
+        <td>@ViewBag.Dojos.DojoInfo</td>
+    </tr>
+</table>
+
+<!-- TABLE TO SHOW CURRENT NINJAS IN THE DOJO -->
+<div class="dojo">
+    <h4>CURRENT MEMBERS:</h4>
+    <table>
+        <tr>
+            <th>NINJA</th>
+            <th>ACTION</th>
+        </tr>
+    <!-- FOREACH FOR NINJA MEMBERS -->
+        <tr>
+            <td>Current</td>
+            <td><a href="banish/id">BANISH</a></td>
+        </tr>
+    <!-- END FOREACH -->
+    </table>
+</div>
+<!-- END TABLE -->
+
+<!-- TABLE TO SHOW ROGUE NINJAS IN THE DOJO -->
+<div class="dojo">
+    <h4>ROGUE MEMBERS:</h4>
+    <table>
+        <tr>
+            <th>NINJA</th>
+            <th>ACTION</th>
+        </tr>
+    <!-- FOREACH FOR NINJA ROGUES -->
+        <tr>
+            <td>Rogue</td>
+            <td><a href="recruit/id">RECRUIT</a></td>
+        </tr>
+    <!-- END FOREACH -->
+    </table>
+</div>
+<!-- END TABLE -->

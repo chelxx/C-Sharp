@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Dojos Page";
+}
+@model DojoLeague.Models.Dojo
+<form asp-action="Ninjas" asp-controller="Ninja" method="get">
+    <button>VIEW NINJAS</button>
+</form>
+<div>
+<h3>ALL DOJOS:</h3>
+<table>
+    <tr>
+        <th>DOJO NAME</th>
+    </tr>
+<!-- FOREACH FOR LIST OF DOJOS HERE -->
+    @foreach(var dojo in ViewBag.Dojos)
+    {
+        <tr>
+            <td><a href="viewdojo/@dojo.Id">@dojo.DojoName</a></td>
+        </tr>
+    }
+<!-- END OF FOREACH -->
+</table>
+</div>
+<div>
+<h3>REGISTER A DOJO:</h3>
+<table>
+    <form asp-action="CreateDojoProcess" asp-controller="Dojo" method="post">
+    <tr>
+        <th>DOJO NAME: </th>
+        <td><input type="text" asp-for="DojoName"></td>
+    </tr>
+    <tr>
+        <th>DOJO LOCATION: </th>
+        <td><input type="text" asp-for="DojoLocation"></td>
+    </tr>
+    <tr>
+        <th>ADDITIONAL DOJO<br>INFORMATION: </th>
+        <td><textarea asp-for="DojoInfo" cols="20" rows="10"></textarea></td>
+    </tr>
+    <tr>
+        <td>@TempData["Errors"]</td>
+    </tr>
+    <tr>
+        <td><button>ADD DOJO</button></td>
+    </tr>
+    </form>
+</table>
+</div>

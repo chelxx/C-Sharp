@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "View Ninja";
+}
+<form action="/" method="get">
+    <button>DOJO HOME</button>
+</form>
+
+<h1>Name: @ViewBag.Ninjas.NinjaName</h1>
+<table>
+    <tr>
+        <th class="hi">Ninja Level: </th>
+        <td>@ViewBag.Ninjas.NinjaLevel</td>
+    </tr>
+    <tr>
+        <th class="hi">Description: </th>
+        <td>@ViewBag.Ninjas.NinjaDescription</td>
+    </tr>
+    <tr>
+        <th class="hi">Current Dojo: </th>
+        @{
+            @if(@ViewBag.Ninjas.DojoName == null)
+            {
+                <td>ROGUE!</td>
+            }
+            else
+            {
+                <td>@ViewBag.Ninjas.DojoName</td>
+            }
+        }   
+    </tr>
+</table>

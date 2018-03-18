@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Ninjas Page";
+}
+@model DojoLeague.Models.Ninja
+<div>
+<table>
+<h3>REGISTERED NINJAS:</h3>
+    <tr>
+        <th>NINJA NAME: </th>
+        <th>HOME DOJO: </th>
+    </tr>
+<!-- FOREACH FOR LIST OF DOJOS HERE -->
+@{
+    @foreach(var ninja in ViewBag.Ninjas)
+    {
+        <tr>
+            <td><a href="viewninja/@ninja.Id">@ninja.NinjaName</a></td>
+            @if(@ninja.DojoName == null)
+            {
+                <td>Rogue</td>
+            }
+            else
+            {
+                <td>@ninja.DojoName</td>
+            }
+        </tr>
+    }
+}
+<!-- END OF FOREACH -->
+</table>
+</div>
+<div>
+<table>
+<h3>REGISTER A NINJA:</h3>
+    <form asp-action="CreateNinjaProcess" asp-controller="Ninja" method="post">
+    <tr>
+        <th>Ninja Name: </th>
+        <td><input type="text" asp-for="NinjaName"></td>
+    </tr>
+    <tr>
+        <th>Ninjaing Level: </th>
+        <td>
+            <select asp-for="NinjaLevel">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>Assigned Dojo: </th>
+        <td>
+            <select asp-for="dojos_Id">
+                <option>Rogue</option>
+<!-- FOREACH FOR ALL AVAILABLE DOJOS -->
+            @{
+                @foreach(var dojo in ViewBag.Dojos)
+                {
+                    <option value="@dojo.Id">@dojo.DojoName</option>
+                }
+            }
+<!-- END OF FOREACH -->
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>Additional Ninja<br>Information: </th>
+        <td><textarea asp-for="NinjaDescription" cols="20" rows="10"></textarea></td>
+    </tr>
+    <tr>
+        <td><button>ADD NINJA</button></td>
+    </tr>
+    </form>
+</table>
+</div>
+<br>
