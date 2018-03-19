@@ -11,10 +11,12 @@ namespace DojoLeague.Controllers
     public class DojoController : Controller
     {
         private readonly DojoFactory dojoFactory;
+        private readonly NinjaFactory ninjaFactory;
 
         public DojoController()
         {
             dojoFactory = new DojoFactory();
+            ninjaFactory = new NinjaFactory();
         }
         // GET: /Home/
         [HttpGet]
@@ -23,6 +25,22 @@ namespace DojoLeague.Controllers
         {
             ViewBag.Dojos = dojoFactory.FindDOJOAll();
             return View("Index");
+        }
+
+        [HttpGet]
+        [Route("banish/{ninjaID}/{dojoID}")]
+        public IActionResult BanishNinjaProcess(int ninjaID, int dojoID)
+        {
+            ninjaFactory.BanishNINJA(ninjaID);
+            return Redirect($"/viewdojo/{dojoID}");
+        }
+
+        [HttpGet]
+        [Route("recruit/{ninjaID}/{dojoID}")]
+        public IActionResult Recruit(int ninjaID, int dojoID)
+        {
+            ninjaFactory.RecruitNINJA(ninjaID, dojoID);
+            return Redirect($"/viewdojo/{dojoID}");
         }
 
         [HttpPost]
@@ -43,27 +61,13 @@ namespace DojoLeague.Controllers
         }
 
         [HttpGet]
-        [Route("viewdojo/{dojoID}")]
-        public IActionResult CreateDojo(int dojoID)
+        [Route("viewdojo/{id}")]
+        public IActionResult CreateDojo(int id)
         {
-            ViewBag.Dojos = dojoFactory.FindDOJOByID(dojoID);
+            ViewBag.Dojos = dojoFactory.FindDOJOByID(id);
+            ViewBag.ResidentNinjas = ninjaFactory.FindNINJAByDOJO(id);
+            ViewBag.RogueNinjas = ninjaFactory.FindRogueNINJAS();
             return View("Dojo");
         }
-
-        // [HttpGet]
-        // [Route("banish/{id}/{dojo_id}")]
-        // public IActionResult Banish(int id, int dojo_id)
-        // {
-        //     dojoFactory.BanishDOJO(id);
-        //     return Redirect($"/dojo/{dojo_id}");
-        // }
-
-        // [HttpGet]
-        // [Route("recruit/{id}/{dojo_id}")]
-        // public IActionResult Recruit(int id, int dojo_id)
-        // {
-        //     dojoFactory.RecruitDOJO(id, dojo_id);
-        //     return Redirect($"/dojo/{dojo_id}");
-        // }
     }
 }

@@ -2,6 +2,9 @@
     ViewData["Title"] = "Ninjas Page";
 }
 @model DojoLeague.Models.Ninja
+<form action="/" method="get">
+    <button>REGISTER DOJO</button>
+</form>
 <div>
 <table>
 <h3>REGISTERED NINJAS:</h3>
@@ -21,7 +24,7 @@
             }
             else
             {
-                <td>@ninja.DojoName</td>
+                <td><a href="/viewdojo/@ninja.dojos_Id">@ninja.DojoName</a></td>
             }
         </tr>
     }

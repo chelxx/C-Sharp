@@ -47,5 +47,6 @@ namespace DojoLeague.Factory
                 return dbConnection.Query<Dojo>("SELECT * FROM DojoLeague.dojos WHERE id = @Id", new { Id = id }).FirstOrDefault();
             }
         }
+    
     }
 }

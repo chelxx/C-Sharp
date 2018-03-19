@@ -2,7 +2,11 @@
     ViewData["Title"] = "Dojos Page";
 }
 <form action="/" method="get" class="home">
-    <button>HOME</button>
+    <button>VIEW DOJOS</button>
+</form>
+<br>
+<form action="/ninjas" method="get">
+    <button>VIEW NINJAS</button>
 </form>
 
 <h1>@ViewBag.Dojos.DojoName</h1>
@@ -26,10 +30,15 @@
             <th>ACTION</th>
         </tr>
     <!-- FOREACH FOR NINJA MEMBERS -->
-        <tr>
-            <td>Current</td>
-            <td><a href="banish/id">BANISH</a></td>
-        </tr>
+        @{
+            @foreach(var residentninja in ViewBag.ResidentNinjas)
+            {
+                <tr>
+                    <td><a href="/viewninja/@residentninja.Id">@residentninja.NinjaName</a></td>
+                    <td><a href="/banish/@residentninja.Id/@ViewBag.Dojos.Id">banish</a></td>
+                </tr>
+            }
+        }
     <!-- END FOREACH -->
     </table>
 </div>
@@ -44,10 +53,15 @@
             <th>ACTION</th>
         </tr>
     <!-- FOREACH FOR NINJA ROGUES -->
+@{
+    @foreach(var rogueninja in ViewBag.RogueNinjas)
+    {
         <tr>
-            <td>Rogue</td>
-            <td><a href="recruit/id">RECRUIT</a></td>
+            <td><a href="/viewninja/@rogueninja.Id">@rogueninja.NinjaName</a></td>
+            <td><a href="/recruit/@rogueninja.Id/@ViewBag.Dojos.Id">recruit</a></td>
         </tr>
+    }
+}
     <!-- END FOREACH -->
     </table>
 </div>

@@ -2,7 +2,11 @@
     ViewData["Title"] = "View Ninja";
 }
 <form action="/" method="get">
-    <button>DOJO HOME</button>
+    <button>VIEW DOJOS</button>
+</form>
+<br>
+<form action="/ninjas" method="get">
+    <button>VIEW NINJAS</button>
 </form>
 
 <h1>Name: @ViewBag.Ninjas.NinjaName</h1>
@@ -24,7 +28,7 @@
             }
             else
             {
-                <td>@ViewBag.Ninjas.DojoName</td>
+                <td><a href="/viewdojo/@ViewBag.Ninjas.dojos_Id">@ViewBag.Ninjas.DojoName</a></td>
             }
         }   
     </tr>
