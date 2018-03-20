@@ -13,7 +13,28 @@ namespace BankAccounts.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
+        }
+
+        [HttpGet]
+        [Route("login")]
+        public IActionResult LoginView()
+        {
+            return View("Login");
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public IActionResult LoginUser()
+        {
+            return View("Login");
+        }
+
+        [HttpPost]
+        [Route("register")]
+        public IActionResult RegisterUser()
+        {
+            return View("Login");
         }
     }
 }

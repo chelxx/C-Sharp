@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Register User";
+}
+@model BankAccounts.Models.User
+<h1>LOG IN:</h1>
+<form asp-action="LoginUser" asp-controller="Home" method="post">
+
+    <span asp-validation-for="FirstName"></span>
+    <br>
+    <label>First Name:</label>
+    <input asp-for="FirstName" class="form-control">
+    <br>
+
+    <span asp-validation-for="LastName"></span>
+    <br>
+    <label>Last Name:</label>
+    <input asp-for="LastName" class="form-control">
+    <br>
+
+    <button class="btn btn-info" type="submit">LOG IN</button>
+
+</form>
+<br>
+<form action="/">
+    <button class="btn btn-info">HOME</button>
+</form>
