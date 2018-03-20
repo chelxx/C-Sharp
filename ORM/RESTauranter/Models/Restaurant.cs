@@ -1,5 +1,5 @@
-using System.ComponentModel.DataAnnotations;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RESTauranter.Models
 {
@@ -15,7 +15,6 @@ namespace RESTauranter.Models
     {
         // EMPTY!!!
     }
-
     public class Restaurant : BaseEntity
     {
         [Key]
