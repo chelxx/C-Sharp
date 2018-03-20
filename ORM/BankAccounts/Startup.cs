@@ -24,7 +24,7 @@ namespace BankAccounts
         {
             services.AddMvc();
             services.AddSession();
-            services.AddDbContext<BankContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
+            services.AddDbContext<BankContext>(options => options.UseNpgsql(Configuration["DBInfo:ConnectionString"]));
         }
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {

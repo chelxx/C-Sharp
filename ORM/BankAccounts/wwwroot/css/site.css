@@ -2,3 +2,18 @@
 * {
     color: rgb(35, 145, 189);
 }
+hr {
+    border: 2px solid;
+}
+span.money {
+    color: rgb(240, 123, 103);
+    font-weight: bold;
+}
+.logout {
+    background-color: rgb(240, 123, 103);
+    border: none;
+}
+h1#welcome {
+    text-transform: uppercase;
+    font-weight: bold;
+}

@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Bank Overview";
+}
+<h1 id="welcome">Welcome, @ViewBag.Name!</h1>
+<h3>Current Balance: <span class="money">$@ViewBag.UserInfo[0].Balance</span></h3>
+<hr>
+<form action="/transaction" method="post">
+    <label>Amount to <span class="money">Deposit</span> or <span class="money">Withdraw</span>:</label>
+    <input name="amount" type="number" step="1.00" class="form-control" placeholder="0.00">
+    <button class="btn btn-info moolah">SUBMIT</button>
+</form>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Amount</th>
+      <th scope="col">Date of Transaction</th>
+    </tr>
+  </thead>
+  <tbody>
+<!-- FOREACH FOR THE TRANSACTIONS -->
+@foreach(var transaction in ViewBag.TransactionInfo)
+{
+    <tr>
+      <th scope="row">$@transaction.TransactionAmount</th>
+      <td>@transaction.TransactionDate.ToString("MMMM d, yyyy") at @transaction.TransactionDate.ToString("t")</td>
+    </tr>
+}
+<!-- END FOREACH -->
+  </tbody>
+</table>
+<br>
+<form action="/logout" method="post">
+    <button class="btn btn-info logout">LOG OUT</button>
+</form>

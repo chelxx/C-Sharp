@@ -1,20 +1,20 @@
 @{
-    ViewData["Title"] = "Register User";
+    ViewData["Title"] = "Login User";
 }
-@model BankAccounts.Models.User
+@model BankAccounts.Models.LoginUser
 <h1>LOG IN:</h1>
 <form asp-action="LoginUser" asp-controller="Home" method="post">
 
-    <span asp-validation-for="FirstName"></span>
+    <span asp-validation-for="Email"></span>
     <br>
-    <label>First Name:</label>
-    <input asp-for="FirstName" class="form-control">
+    <label>Email Address:</label>
+    <input asp-for="Email" class="form-control">
     <br>
 
-    <span asp-validation-for="LastName"></span>
+    <span asp-validation-for="Password"></span>
     <br>
-    <label>Last Name:</label>
-    <input asp-for="LastName" class="form-control">
+    <label>Password:</label>
+    <input asp-for="Password" class="form-control">
     <br>
 
     <button class="btn btn-info" type="submit">LOG IN</button>
@@ -22,5 +22,5 @@
 </form>
 <br>
 <form action="/">
-    <button class="btn btn-info">HOME</button>
+    <button class="btn btn-info">REGISTER HERE</button>
 </form>
