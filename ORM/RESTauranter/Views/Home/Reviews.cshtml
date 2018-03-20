@@ -1,9 +1,16 @@
 @{
     ViewData["Title"] = "Reviews Page";
 }
-@foreach(var rest in ViewBag.Reviews) {
-    <h1>Review for: @rest.RestaurantName  @rest.Stars</h1>
-    <h2>Reviewer: @rest.ReviewerName, @rest.DateVisit</h2>
-    <h3>@rest.Review</h3>
-    <hr>
+<h1>All Reviews:</h1>
+<form action="/">
+    <button>HOME</button>
+</form>
+<br>
+@foreach(var rest in ViewBag.Reviews) 
+{
+    <blockquote>
+        <p>@rest.Review</p>
+        <footer>Review for: @rest.RestaurantName, @rest.Stars Stars</footer>
+        <footer>Reviewer: @rest.ReviewerName, @rest.DateVisit.ToString("D")</footer>
+    </blockquote>
 }

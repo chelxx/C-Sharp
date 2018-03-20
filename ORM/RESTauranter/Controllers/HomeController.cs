@@ -44,8 +44,8 @@ namespace RESTauranter.Controllers
         [Route("reviews")]
         public IActionResult Review()
         {
-            List<Restaurant> rName = _context.restaurant.ToList();
-            ViewBag.Reviews = rName.OrderByDescending(r => r.DateVisit);
+            List<Restaurant> rName = _context.restauranter.ToList();
+            ViewBag.Reviews = rName.OrderBy(r => r.DateVisit);
             return View("Reviews");
         }
     }
