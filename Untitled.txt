@@ -1,0 +1,83 @@
+ENTITTY NOTES:
+
+******************************************************
+
+1. START PROJECT
+
+In terminal:
+	yo candyman *project name*
+
+******************************************************
+
+2. CD into the new project
+
+In terminal:
+	cd *project name*
+
+******************************************************
+
+3. Make the following changes:
+
+In projectname.csproj using the CandymanNotes
+
+In bin and obj, delete unnecessary files
+
+In .vscode - launch.json, change "program"
+
+******************************************************
+
+4. Add package:
+
+In terminal:
+	dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.0.1
+
+In terminal:
+	dotnet restore
+
+******************************************************
+
+5. Create Models folder - ___Context.cs
+
+In ___Context.cs:
+
+using Microsoft.EntityFrameworkCore;
+namespace YourNamespace.Models
+{
+    public class YourContext : DbContext
+    {
+        // base() calls the parent class' constructor passing the "options" parameter along
+        public YourContext(DbContextOptions<YourContext> options) : base(options) { }
+    }
+}
+
+******************************************************
+
+6. Add package:
+
+In terminal:
+	dotnet add package MySql.Data -v 8.0.9-*
+
+In terminal:
+	dotnet restore
+
+******************************************************
+
+7. In the root, make appsettings.json and copy paste:
+
+{
+    "DBInfo":
+    {
+        "Name": "MySQLconnect",
+        "ConnectionString": "server=localhost;userid=root;password=root;port=8889;database=mydb;SslMode=None"
+    }
+}
+
+******************************************************
+
+8. In the Startup.cs, copy paste the following using statements:
+
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.AspNetCore.Hosting;
+
+******************************************************
+******************************************************

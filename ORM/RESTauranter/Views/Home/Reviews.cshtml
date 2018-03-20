@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = "Reviews Page";
+}
+@foreach(var rest in ViewBag.Reviews) {
+    <h1>Review for: @rest.RestaurantName  @rest.Stars</h1>
+    <h2>Reviewer: @rest.ReviewerName, @rest.DateVisit</h2>
+    <h3>@rest.Review</h3>
+    <hr>
+}
