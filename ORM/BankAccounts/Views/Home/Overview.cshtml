@@ -22,7 +22,7 @@
 @foreach(var transaction in ViewBag.TransactionInfo)
 {
     <tr>
-      <th scope="row">$@transaction.TransactionAmount</th>
+      <th scope="row">$ @transaction.TransactionAmount</th>
       <td>@transaction.TransactionDate.ToString("MMMM d, yyyy") at @transaction.TransactionDate.ToString("t")</td>
     </tr>
 }

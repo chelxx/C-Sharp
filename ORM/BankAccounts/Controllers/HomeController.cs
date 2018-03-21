@@ -35,6 +35,8 @@ namespace BankAccounts.Controllers
                 User current = _context.Users.SingleOrDefault(RegUser => RegUser.Email == newRegUser.Email);
                 if(current != null)
                 {
+                    // CHANGED ACCORDING TO LECTURE
+                    // INSTEAD OF USING VIEWBAG
                     ModelState.AddModelError("Email", "Email already exists!");
                     return View("Index");
                 }
@@ -81,6 +83,8 @@ namespace BankAccounts.Controllers
                 User current = _context.Users.Where(u => u.Email == loginUser.Email).SingleOrDefault();
                 if(current == null)
                 {
+                    // CHANGED ACCORDING TO LECTURE
+                    // INSTEAD OF USING VIEWBAG
                     ModelState.AddModelError("Email", "Email does not exist!");
                     return View("Login");
                 }
@@ -116,7 +120,6 @@ namespace BankAccounts.Controllers
             ViewBag.Name = HttpContext.Session.GetString("firstname");
             List<Transaction> transactioninfo = _context.Transactions.Where(t => t.UserId == id).OrderByDescending(t => t.TransactionDate).ToList();
             ViewBag.TransactionInfo = transactioninfo;
-
             return View("Overview");
         }
 

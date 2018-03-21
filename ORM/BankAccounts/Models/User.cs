@@ -6,7 +6,7 @@ namespace BankAccounts.Models
 {
     public class User : BaseEntity
     {
-        // These must match your column in your table databasHie!
+        // These must match your columns in your table database!
         public int UserId { get; set; }
         public string FirstName { get;set; }
         public string LastName { get;set; }
