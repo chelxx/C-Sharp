@@ -1,13 +1,13 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WeddingPlanner.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using Microsoft.Extensions.Logging;
 
 namespace WeddingPlanner.Controllers
 {
