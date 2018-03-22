@@ -148,7 +148,6 @@ namespace WeddingPlanner.Controllers
             }
         }
        
-        
         [HttpGet]
         [Route("CreateWedding")]
         public IActionResult CreateWedding()
@@ -160,15 +159,15 @@ namespace WeddingPlanner.Controllers
         [Route("dash")]
         public IActionResult Dash()
         {
-                int? UserId = HttpContext.Session.GetInt32("userID");
-                List<User> user = _context.Users.Include(u => u.Planners).ToList();
-                List<Planner> allWeddings = _context.Planners.Include(u => u.Guests).Include(u => u.user).ToList();
-                List<Guest> guests = _context.Guests.Include(u => u.planner).ThenInclude(u => u.user).ToList();
-                ViewBag.AllWeddings = allWeddings;
-                User banana = _context.Users.SingleOrDefault (u => u.UserId == UserId);
-                ViewBag.UserId = UserId;
-                ViewBag.user = banana;
-                return View("Dash");
+            int? UserId = HttpContext.Session.GetInt32("userID");
+            List<User> user = _context.Users.Include(u => u.Planners).ToList();
+            List<Planner> allWeddings = _context.Planners.Include(u => u.Guests).Include(u => u.user).ToList();
+            List<Guest> guests = _context.Guests.Include(u => u.planner).ThenInclude(u => u.user).ToList();
+            ViewBag.AllWeddings = allWeddings;
+            User banana = _context.Users.SingleOrDefault (u => u.UserId == UserId);
+            ViewBag.UserId = UserId;
+            ViewBag.user = banana;
+            return View("Dash");
         }
 
         [HttpGet]

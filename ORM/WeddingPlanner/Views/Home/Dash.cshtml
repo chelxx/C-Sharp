@@ -1,15 +1,17 @@
+@{
+    ViewData["Title"] = "Wedding Dashboard";
+}
 @model WeddingPlanner.Models.Guest
-<h1>Welcome to the Wedding Planner</h1>
-<form action="/logout" method="post">
-    <button class="btn btn-info logout">LOG OUT</button>
-</form>
 
+<h1 class="h1">&hearts; THE WEDDING PLANNER &hearts;</h1>
+<h2>Welcome, @ViewBag.user.FirstName @ViewBag.user.LastName!</h2>
+<hr>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Wedding</th>
             <th>Date</th>
-            <th>Guest</th>
+            <th>Guests</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -43,7 +45,7 @@
                     }
                     @if (found==true) 
                     {
-                    <td><a href="unrsvp/@wedding.WeddingId">UNRSVP</a></td>
+                    <td><a href="unrsvp/@wedding.WeddingId">UN-RSVP</a></td>
                     }
                     else 
                     {
@@ -56,6 +58,11 @@
 }
     </tbody>
 </table>
+<br>
 <form action="CreateWedding">
-    <button class="btn btn-info" type="submit">New Wedding</button>
+    <button class="btn btn-info green" type="submit">NEW WEDDING</button>
+</form>
+<br>
+<form action="/logout" method="post">
+    <button class="btn btn-info logout green">LOG OUT</button>
 </form>

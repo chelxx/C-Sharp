@@ -21,6 +21,5 @@ namespace WeddingPlanner.Models
         {
             Guests = new List<Guest>();
         }
-
     }
 }
