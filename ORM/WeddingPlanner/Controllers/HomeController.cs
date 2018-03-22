@@ -15,55 +15,54 @@ namespace WeddingPlanner.Controllers
     {
         private PlanContext _context;
  
-        public HomeController(PlanContext context)
+        public HomeController(PlanContext context) // For HomeController to be able to use PlanContext
         {
-            _context = context;
+            _context = context; // Needed to Query stuff
         }
-        // GET: /Home/
         [HttpGet]
         [Route("")]
         public IActionResult Index()
         {
-            return View("Index");
+            return View("Index"); // Renders an HTML view
         }
 
         [HttpPost]
         [Route("register")]
-        public IActionResult RegisterUser(RegUser newRegUser)
+        public IActionResult RegisterUser(RegUser newRegUser) // This Method takes in a parameter of newRegUser
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // There are NO errors
             {
-                // ADD IF STATEMENTS FOR AN EXISTING EMAIL
-                User current = _context.Users.SingleOrDefault(RegUser => RegUser.Email == newRegUser.Email);
-                if(current != null)
+                User current = _context.Users.SingleOrDefault(e => e.Email == newRegUser.Email); // Query to check if there is an existing email
+                if(current != null) // If the results come up with something...
                 {
-                    // CHANGED ACCORDING TO LECTURE
-                    // INSTEAD OF USING VIEWBAG
-                    ModelState.AddModelError("Email", "Email already exists!");
+                    ModelState.AddModelError("Email", "Email already exists!"); // ...An email exists and renders the Index View
+                    // This is an example of another way to add errors without using ViewBag
+                    // The parameters: ModelState.AddModelError("The attribute NAME on the form where you want to put it", "Error Message");
                     return View("Index");
                 }
-                else
+                else // If email does not exist in the database yet...
                 {
-                    PasswordHasher<RegUser> Hasher = new PasswordHasher<RegUser>();
-                    string hashed = Hasher.HashPassword(newRegUser, newRegUser.Password);
-                    User user = new User
+                    PasswordHasher<RegUser> Hasher = new PasswordHasher<RegUser>(); // This will hash the password
+                    string hashed = Hasher.HashPassword(newRegUser, newRegUser.Password); // This will take in the user's given password and hash it
+                    User user = new User // Creating a new User using the info provided by the user via the form
                     {
                         FirstName = newRegUser.FirstName,
                         LastName = newRegUser.LastName,
                         Email = newRegUser.Email,  
                         Password = hashed,    
                     };
-                    _context.Add(user);
-                    _context.SaveChanges();
-                    User sessionuser = _context.Users.Where(u => u.Email == newRegUser.Email).SingleOrDefault();
-                    HttpContext.Session.SetInt32("userID", sessionuser.UserId);
-                    HttpContext.Session.SetString("firstname", sessionuser.FirstName);
-                    return RedirectToAction("Dash");
+                    _context.Add(user); // Instant Query to ADD! 
+                    _context.SaveChanges(); // Query to Save Changes
+                    User sessionuser = _context.Users.Where(u => u.Email == newRegUser.Email).SingleOrDefault(); // Model User has a variable sessionuser that contains the query of getting the new user's email to gain access to their other info
+                    HttpContext.Session.SetInt32("userID", sessionuser.UserId); // Setting userID to hold onto the user's UserId while in session
+                    HttpContext.Session.SetString("firstname", sessionuser.FirstName); // Setting firstname to hold th user's FirstName while in session
+                    return RedirectToAction("Dash"); // Goes to the Method named Dash
                 }
             }
-            else
+            else // If there ARE errors present...
             {
-                return View("Index");
+                return View("Index"); // ...Go back to the Index view
+                // When you want to show errors, DO NOT Redirect!
             }
         }
 
@@ -78,57 +77,57 @@ namespace WeddingPlanner.Controllers
         [Route("login")]
         public IActionResult LoginUser(LoginUser loginUser)
         {
-            if(ModelState.IsValid)
+            if(ModelState.IsValid) // If there are NO errors
             {
-                User current = _context.Users.Where(u => u.Email == loginUser.Email).SingleOrDefault();
-                if(current == null)
+                User current = _context.Users.Where(u => u.Email == loginUser.Email).SingleOrDefault(); // Query to look for an email in the database
+                if(current == null) // If the email does not exist in the database...
                 {
-                    // CHANGED ACCORDING TO LECTURE
-                    // INSTEAD OF USING VIEWBAG
-                    ModelState.AddModelError("Email", "Email does not exist!");
+                    ModelState.AddModelError("Email", "Email does not exist!"); // ...this will append the new error on the view
+                    // This is an example of another way to add errors without using ViewBag
+                    // The parameters: ModelState.AddModelError("The attribute NAME on the form where you want to put it", "Error Message");
                     return View("Login");
                 }
-                else
+                else // If email DOES exist
                 {
-                    var hasher = new PasswordHasher<User>();
-                    if(hasher.VerifyHashedPassword(current, current.Password, loginUser.Password) == 0)
+                    var hasher = new PasswordHasher<User>(); // This will hash the password
+                    if(hasher.VerifyHashedPassword(current, current.Password, loginUser.Password) == 0) // This will hash the password and look for a matching the email AND hashed password in the database
                     {
-                        ModelState.AddModelError("Password", "Incorrect password!");
+                        ModelState.AddModelError("Password", "Incorrect password!"); // This will append the new error on the view
                         return View("Login");
                     }
                     else
                     {
-                        HttpContext.Session.SetInt32("userID", current.UserId);
-                        HttpContext.Session.SetString("firstname", current.FirstName);
+                        HttpContext.Session.SetInt32("userID", current.UserId); // Settion session
+                        HttpContext.Session.SetString("firstname", current.FirstName); // Setting session
                         return RedirectToAction("Dash");
                     }
                 }
             }
-            else
+            else // If there ARE errors
             {
-                return View("Login");
+                return View("Login"); // Go back to the Login view
             }
         }
 
         [HttpGet]
         [Route("overview/{Weddingid}")]
-        public IActionResult Overview(int Weddingid)
+        public IActionResult Overview(int Weddingid) // This Method shows you the details of a specific wedding, this Method takes in 1 parameter
         {
-            Planner oneWedding = _context.Planners.SingleOrDefault (w => w.WeddingId == Weddingid);
-            ViewBag.WeddingInfo = oneWedding;
-            List<Planner> guests = _context.Planners.Where (w => w.WeddingId == Weddingid).Include (r => r.Guests).ThenInclude (u => u.user).ToList ();
-            ViewBag.AllGuests = guests;
+            Planner oneWedding = _context.Planners.SingleOrDefault (w => w.WeddingId == Weddingid); // Model Planner has a variable named oneWedding that contains a Query to find a wedding with a sepcific WeddingId
+            ViewBag.WeddingInfo = oneWedding; // Containing all the results of the Query oneWedding into a ViewBag for use in the HTML
+            List<Planner> guests = _context.Planners.Where (w => w.WeddingId == Weddingid).Include (r => r.Guests).ThenInclude (u => u.user).ToList (); // Model Planner will return a List that has a variable named guests that contains a query to find a specific WeddingId to gain access to their Guests and User
+            ViewBag.AllGuests = guests; // Containing all the results of the Query guests into a ViewBag for use in the HTML
             return View("Overview");
         }
 
         [HttpPost]
         [Route("planner")]
-        public IActionResult Planner(Planner newPlan)
+        public IActionResult Planner(CreateWedding newPlan) // This Method will create a new Wedding, this Method takes in 1 parameter
         {
-            if(ModelState.IsValid)
+            if(ModelState.IsValid) // If there are NO errors
             {
-                int? id = HttpContext.Session.GetInt32("userID");
-                Planner planner = new Planner
+                int? id = HttpContext.Session.GetInt32("userID"); // Getting session information
+                Planner planner = new Planner // Creating a new Wedding using the info provided by the user via the forms
                 {
                     UserId = (int)id,
                     WedderOne = newPlan.WedderOne,
@@ -137,11 +136,11 @@ namespace WeddingPlanner.Controllers
                     Address = newPlan.Address
                 };
                 User user = _context.Users.Where(u => u.UserId == planner.UserId).SingleOrDefault();
-                _context.Add(planner);
-                _context.SaveChanges();
+                _context.Add(planner); // Instant Query to ADD!
+                _context.SaveChanges(); // Query to Save Changes
                 return RedirectToAction("Dash");
             }
-            else
+            else // If there ARE errors
             {
                 return View("Create");
             }
@@ -149,23 +148,23 @@ namespace WeddingPlanner.Controllers
        
         [HttpGet]
         [Route("CreateWedding")]
-        public IActionResult CreateWedding()
+        public IActionResult CreateWedding() // Method to SHOW the form where the user can create a Wedding
         {
             return View("Create");
         }
 
         [HttpGet]
         [Route("dash")]
-        public IActionResult Dash()
+        public IActionResult Dash() // This Method will SHOW a list of Weddings and their basic information
         {
-            int? UserId = HttpContext.Session.GetInt32("userID");
-            List<User> user = _context.Users.Include(u => u.Planners).ToList();
+            int? UserId = HttpContext.Session.GetInt32("userID"); // Containing the SessionId in a variable
+            List<User> user = _context.Users.Include(u => u.Planners).ToList(); // User Model will return a List and has a variable named user that contains a query 
             List<Planner> allWeddings = _context.Planners.Include(u => u.Guests).Include(u => u.user).ToList();
             List<Guest> guests = _context.Guests.Include(u => u.planner).ThenInclude(u => u.user).ToList();
             ViewBag.AllWeddings = allWeddings;
             User banana = _context.Users.SingleOrDefault (u => u.UserId == UserId);
-            ViewBag.UserId = UserId;
-            ViewBag.user = banana;
+            ViewBag.UserId = UserId; // The SessionId is stored in here for use in the HTML
+            ViewBag.user = banana; // This ViewBag will contain all the results of the banana query
             return View("Dash");
         }
 
