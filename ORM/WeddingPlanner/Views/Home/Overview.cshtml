@@ -1,0 +1,17 @@
+<h1>@ViewBag.WeddingInfo.WedderOne & @ViewBag.WeddingInfo.WedderTwo</h1>
+<a href="/dash">Dashboard</a>
+<form action="/logout" method="post">
+    <button class="btn btn-info logout">LOG OUT</button>
+</form>
+<h2>Date: @ViewBag.WeddingInfo.WeddingDate.ToString("D")</h2>
+<h2>Guests:</h2>
+@foreach (var wedding in @ViewBag.AllGuests)
+{
+    @foreach (var guest in wedding.Guests)
+    {
+        <ul>
+            <li><td>@guest.user.FirstName @guest.user.LastName</td></li>
+        
+        </ul>
+    }
+}
