@@ -114,10 +114,9 @@ namespace WeddingPlanner.Controllers
         [Route("overview/{Weddingid}")]
         public IActionResult Overview(int Weddingid)
         {
-            int weddingid = Weddingid;
-            Planner ReturnedWedding = _context.Planners.SingleOrDefault (w => w.WeddingId == weddingid);
-            ViewBag.WeddingInfo = ReturnedWedding;
-            List<Planner> guests = _context.Planners.Where (w => w.WeddingId == weddingid).Include (r => r.Guests).ThenInclude (u => u.user).ToList ();
+            Planner oneWedding = _context.Planners.SingleOrDefault (w => w.WeddingId == Weddingid);
+            ViewBag.WeddingInfo = oneWedding;
+            List<Planner> guests = _context.Planners.Where (w => w.WeddingId == Weddingid).Include (r => r.Guests).ThenInclude (u => u.user).ToList ();
             ViewBag.AllGuests = guests;
             return View("Overview");
         }

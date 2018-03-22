@@ -13,10 +13,9 @@ namespace WeddingPlanner.Models
         public DateTime WeddingDate {get;set;}
         public string WedderOne {get;set;}
         public string WedderTwo {get;set;}
-
         public string Address {get;set;}
         public User user {get;set;} 
-        public List<Guest> Guests { get;set; }
+        public List<Guest> Guests {get;set;}
         public Planner()
         {
             Guests = new List<Guest>();
