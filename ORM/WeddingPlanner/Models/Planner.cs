@@ -6,8 +6,8 @@ namespace WeddingPlanner.Models
 {
     public class Planner : BaseEntity
     {
-        [Key]
         // These must match the columns in your database's table!
+        [Key]
         public int WeddingId {get; set;}
         public int UserId {get;set;}
         public DateTime WeddingDate {get;set;}

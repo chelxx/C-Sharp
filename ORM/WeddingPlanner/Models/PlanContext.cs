@@ -9,7 +9,6 @@ namespace WeddingPlanner.Models
         public PlanContext(DbContextOptions<PlanContext> options) : base(options) { }
         public DbSet<User> Users { get;set; }
         public DbSet<Planner> Planners { get;set; }
-
         public DbSet<Guest> Guests {get;set;}
     }
 }

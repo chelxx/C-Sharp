@@ -26,7 +26,7 @@
     foreach(var user in @ViewBag.thewall)
     {
         <blockquote>
-                <p class="header">@user["FirstName"] @user["LastName"], @user["created_at"]</p>
+                <p class="header">@user["FirstName"] @user["LastName"], @user["created_at"].ToString("MMMM d, yyyy")</p>
                 <p>@user["Message"]</p>
             @if(user["the_user_id"] == ViewBag.id)
             {
@@ -43,7 +43,7 @@
                 @if(comment["message_id"] == user["id"])
                 {
                     <blockquote>
-                        <p class="cmnt header">@comment["FirstName"] @comment["LastName"], @comment["created_at"] @comment["message_id"]</p>
+                        <p class="cmnt header">@comment["FirstName"] @comment["LastName"], @comment["created_at"].ToString("MMMM d, yyyy")</p>
                         <p class="cmnt">@comment["Comment"]</p>
                     </blockquote>
                 }
